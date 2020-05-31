@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StatusScript" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,7 +683,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="MainWindow" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -700,18 +701,86 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Script Editor Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScriptEditorController" id="XfG-lQ-9wD" customClass="ScriptEditorController" customModule="StatusScript" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="526" height="348"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7zn-bp-C8p">
+                                <rect key="frame" x="18" y="312" width="490" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Enter name for the script" id="tgg-q4-rwW">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OKj-kw-vqV">
+                                <rect key="frame" x="20" y="275" width="486" height="21"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Dj9-95-Q6n">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oIx-x2-u8e">
+                                <rect key="frame" x="18" y="243" width="490" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Enter script content" id="j1V-1Q-KGN">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBY-zj-o0g">
+                                <rect key="frame" x="228" y="3" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d9X-7M-VGy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="didTapSave:" target="XfG-lQ-9wD" id="ih1-6s-7AV"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RxW-FB-cs5">
+                                <rect key="frame" x="20" y="47" width="486" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="dUP-Pr-jw7"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cyA-Hf-DNd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="oIx-x2-u8e" firstAttribute="leading" secondItem="OKj-kw-vqV" secondAttribute="leading" id="6Mm-Td-GRe"/>
+                            <constraint firstAttribute="trailing" secondItem="7zn-bp-C8p" secondAttribute="trailing" constant="20" symbolic="YES" id="78z-GU-NQR"/>
+                            <constraint firstItem="7zn-bp-C8p" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="7lC-vB-ysY"/>
+                            <constraint firstItem="RxW-FB-cs5" firstAttribute="leading" secondItem="oIx-x2-u8e" secondAttribute="leading" id="FFz-vG-eIY"/>
+                            <constraint firstItem="DBY-zj-o0g" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="M2v-CG-9TC"/>
+                            <constraint firstItem="RxW-FB-cs5" firstAttribute="trailing" secondItem="oIx-x2-u8e" secondAttribute="trailing" id="Omw-WC-S0s"/>
+                            <constraint firstAttribute="bottom" secondItem="DBY-zj-o0g" secondAttribute="bottom" constant="10" id="P2j-0h-pRM"/>
+                            <constraint firstItem="7zn-bp-C8p" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="UTw-Ie-Ysw"/>
+                            <constraint firstItem="oIx-x2-u8e" firstAttribute="trailing" secondItem="OKj-kw-vqV" secondAttribute="trailing" id="YDd-jU-Azq"/>
+                            <constraint firstItem="OKj-kw-vqV" firstAttribute="trailing" secondItem="7zn-bp-C8p" secondAttribute="trailing" id="ZXM-EY-afO"/>
+                            <constraint firstItem="OKj-kw-vqV" firstAttribute="leading" secondItem="7zn-bp-C8p" secondAttribute="leading" id="aap-ij-8fx"/>
+                            <constraint firstItem="oIx-x2-u8e" firstAttribute="top" secondItem="OKj-kw-vqV" secondAttribute="bottom" constant="16" id="bfA-07-O4f"/>
+                            <constraint firstItem="RxW-FB-cs5" firstAttribute="top" secondItem="oIx-x2-u8e" secondAttribute="bottom" constant="16" id="pZF-Va-xdL"/>
+                            <constraint firstItem="DBY-zj-o0g" firstAttribute="top" secondItem="RxW-FB-cs5" secondAttribute="bottom" constant="16" id="rvg-va-zUX"/>
+                            <constraint firstItem="OKj-kw-vqV" firstAttribute="top" secondItem="7zn-bp-C8p" secondAttribute="bottom" constant="16" id="xXm-oF-R3J"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fileNameTextField" destination="OKj-kw-vqV" id="963-w8-tUE"/>
+                        <outlet property="scriptTextField" destination="RxW-FB-cs5" id="6cd-tM-Ftz"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="98" y="757.5"/>
         </scene>
     </scenes>
 </document>
