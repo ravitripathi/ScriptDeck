@@ -283,6 +283,7 @@
 				CODE_SIGN_ENTITLEMENTS = StatusScript/StatusScript.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FABQJ9SY29;
 				INFOPLIST_FILE = StatusScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +302,7 @@
 				CODE_SIGN_ENTITLEMENTS = StatusScript/StatusScript.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FABQJ9SY29;
 				INFOPLIST_FILE = StatusScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
