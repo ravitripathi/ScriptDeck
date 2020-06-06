@@ -10,66 +10,24 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    static var windowController: NSWindowController = {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
+        return windowController
+    }()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        if let button = statusItem.button {
-            button.image = NSImage(named: "terminal")
-        }
-        constructMenu()
-    }
-    
-    func constructMenu() {
-        let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Run Test Script", action: #selector(self.launchShell), keyEquivalent: "R"))
-        menu.addItem(NSMenuItem(title: "Add New Script", action: #selector(self.addNewScript), keyEquivalent: "A"))
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit Quotes", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
-        statusItem.menu = menu
-    }
-    
-    @objc func launchShell() {
-        var command = "open ~/Documents/test.sh -a"
-        if checkItermInstalled() {
-            command.append(contentsOf: " iTerm")
-        } else {
-            command.append(contentsOf: " Terminal")
-        }
-        shell(command)
-    }
-    
-    @objc func addNewScript() {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-//        guard let vc = storyboard.instantiateController(withIdentifier: .init(stringLiteral: "ScriptEditorController")) as? ScriptEditorController else { return }
-        let windowController = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
-        NSApp.activate(ignoringOtherApps: true)
-        windowController.showWindow(self)
-    }
-    
-    func checkItermInstalled() -> Bool {
-        let task = Process()
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.arguments = ["-c", "mdfind -name \'kMDItemFSName==\"iTerm.app\"\'"]
-        task.executableURL = URL(fileURLWithPath: "/bin/bash")
+        StatusBarHandler.shared.setImage()
         
-        try! task.run()
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
-        return !output.isEmpty
-    }
-    
-    func shell(_ command: String) {
-        let task = Process()
-//        let pipe = Pipe()
-//        task.waitUntilExit()
-//        task.standardOutput = pipe
-        task.arguments = ["-c", command]
-        task.executableURL = URL(fileURLWithPath: "/bin/bash")
-        try! task.run()
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            var isDirectory: ObjCBool = true
+            let fullUrl = url.appendingPathComponent("StatusScriptStore")
+            if !FileManager.default.fileExists(atPath: fullUrl.path, isDirectory: &isDirectory) {
+                try? FileManager.default.createDirectory(at: fullUrl, withIntermediateDirectories: false, attributes: nil)
+            }
+            StatusBarHandler.shared.constructMenu(forUrl: fullUrl)
+        }
         
-//        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-//        let output = String(data: data, encoding: .utf8)!
     }
 }
 
