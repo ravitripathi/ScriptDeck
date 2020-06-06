@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9076C7C4-A01A-4CC9-8E7E-5BC2BA2B6AB0"
+            uuid = "75E64A19-32D9-4671-A5AA-B248A7839A45"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StatusScript/AppDelegate.swift"
+            filePath = "StatusScript/StatusBarHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "launchShell()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "constructMenu(forUrl:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
