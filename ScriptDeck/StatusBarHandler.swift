@@ -1,6 +1,6 @@
 //
 //  StatusBarHandler.swift
-//  StatusScript
+//  ScriptDeck
 //
 //  Created by Ravi Tripathi on 01/06/20.
 //
@@ -55,7 +55,7 @@ class StatusBarHandler {
         menu.addItem(addScript)
         menu.addItem(runInBackgroundItem!)
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit StatusScript", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
+        menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         statusItem.menu = menu
     }
     

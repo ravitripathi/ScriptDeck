@@ -1,6 +1,6 @@
 //
 //  ScriptEditorController.swift
-//  StatusScript
+//  ScriptDeck
 //
 //  Created by Ravi Tripathi on 31/05/20.
 //
@@ -95,7 +95,7 @@ class ScriptEditorController: NSViewController {
                 alert.runModal()
                 return
         }
-        directory.appendPathComponent("StatusScriptStore")
+        directory.appendPathComponent("ScriptDeckStore")
         var fileName = fileNameTextField.stringValue.filter { !$0.isWhitespace }
         
         // Check if extension, else .sh
