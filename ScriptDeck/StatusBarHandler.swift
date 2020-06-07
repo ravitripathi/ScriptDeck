@@ -24,7 +24,8 @@ class StatusBarHandler: NSObject {
     }
     
     lazy var preferences: [PreferencePane] = [
-        GeneralPreferenceViewController()
+        GeneralPreferenceViewController(),
+        AboutViewController()
     ]
     
     lazy var preferencesWindowController = PreferencesWindowController(

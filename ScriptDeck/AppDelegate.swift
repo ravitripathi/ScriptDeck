@@ -56,6 +56,7 @@ extension NSOpenPanel {
 
 extension Preferences.PaneIdentifier {
     static let general = Self("general")
+    static let about = Self("about")
 }
 
 extension UserDefaults
