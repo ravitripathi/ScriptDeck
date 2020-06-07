@@ -6,14 +6,33 @@
 //
 
 import Cocoa
+import Preferences
 
-class StatusBarHandler {
+class StatusBarHandler: NSObject {
     static let shared = StatusBarHandler()
     
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var runInBackground = false
     var shellScripts = [ShellScriptModel]()
     var runInBackgroundItem: NSMenuItem?
+    
+    var preferencesStyle: Preferences.Style {
+        get { .preferencesStyleFromUserDefaults() }
+        set {
+            newValue.storeInUserDefaults()
+        }
+    }
+    
+    lazy var preferences: [PreferencePane] = [
+        GeneralPreferenceViewController()
+    ]
+    
+    lazy var preferencesWindowController = PreferencesWindowController(
+        preferencePanes: preferences,
+        style: preferencesStyle,
+        animated: true,
+        hidesToolbarForSingleItem: false
+    )
     
     func setImage() {
         if let button = statusItem.button {
@@ -55,8 +74,15 @@ class StatusBarHandler {
         menu.addItem(addScript)
         menu.addItem(runInBackgroundItem!)
         menu.addItem(NSMenuItem.separator())
+        let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
+        pref.target = self
+        menu.addItem(pref)
         menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         statusItem.menu = menu
+    }
+    
+    @objc func showPreferences() {
+        preferencesWindowController.show(preferencePane: .general)
     }
     
     @objc func shouldRunInBackground() {

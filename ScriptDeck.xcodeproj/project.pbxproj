@@ -12,10 +12,13 @@
 		414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACD2483C1D800E55291 /* Assets.xcassets */; };
 		414F4AD12483C1D800E55291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACF2483C1D800E55291 /* Main.storyboard */; };
 		414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AD92484067C00E55291 /* ScriptEditorController.swift */; };
+		416DC524248D6B40009B01E7 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */; };
+		416DC525248D6B40009B01E7 /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DC523248D6B40009B01E7 /* GeneralPreferenceViewController.swift */; };
 		41A45256248D5185008F845F /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; };
 		41A45257248D5185008F845F /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41A4525A248D51C1008F845F /* Highlightr.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 41A45259248D51C1008F845F /* Highlightr.framework.dSYM */; };
 		41A4525B248D51C8008F845F /* Highlightr.framework.dSYM in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 41A45259248D51C1008F845F /* Highlightr.framework.dSYM */; };
+		41A4525F248D620E008F845F /* PreferencesStyle+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */; };
 		41E9036D248CD0690060AB93 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 41E9036C248CD0690060AB93 /* Preferences */; };
 		41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F31248428700006EFDB /* ShellScriptModel.swift */; };
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
@@ -55,7 +58,10 @@
 		414F4AD02483C1D800E55291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScriptDeck.entitlements; sourceTree = "<group>"; };
 		414F4AD92484067C00E55291 /* ScriptEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditorController.swift; sourceTree = "<group>"; };
+		416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		416DC523248D6B40009B01E7 /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
 		41A45259248D51C1008F845F /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Highlightr.framework.dSYM; path = Carthage/Build/Mac/Highlightr.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesStyle+UserDefaults.swift"; sourceTree = "<group>"; };
 		41E90372248D25FA0060AB93 /* Highlightr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Highlightr.framework; path = Carthage/Build/Mac/Highlightr.framework; sourceTree = "<group>"; };
 		41EB4F31248428700006EFDB /* ShellScriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScriptModel.swift; sourceTree = "<group>"; };
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
@@ -103,7 +109,10 @@
 				414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */,
 				41EB4F31248428700006EFDB /* ShellScriptModel.swift */,
 				41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */,
+				416DC523248D6B40009B01E7 /* GeneralPreferenceViewController.swift */,
+				416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */,
 				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
+				41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */,
 			);
 			path = ScriptDeck;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */,
+				416DC524248D6B40009B01E7 /* GeneralPreferenceViewController.xib in Resources */,
 				414F4AD12483C1D800E55291 /* Main.storyboard in Resources */,
 				41A4525A248D51C1008F845F /* Highlightr.framework.dSYM in Resources */,
 			);
@@ -195,8 +205,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */,
+				41A4525F248D620E008F845F /* PreferencesStyle+UserDefaults.swift in Sources */,
 				414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */,
 				414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */,
+				416DC525248D6B40009B01E7 /* GeneralPreferenceViewController.swift in Sources */,
 				414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */,
 				41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */,
 			);

@@ -6,6 +6,35 @@
 //
 
 import Cocoa
+import Preferences
+
+extension Preferences.PaneIdentifier {
+    static let general = Self("general")
+}
+
+extension UserDefaults
+{
+    @objc dynamic var language: String
+    {
+        get {
+            return string(forKey: "language") ?? "bash"
+        }
+        set {
+            set(newValue, forKey: "language")
+        }
+    }
+    
+    @objc dynamic var theme: String
+    {
+        get {
+            return string(forKey: "theme") ?? "solarized-dark"
+        }
+        set {
+            set(newValue, forKey: "theme")
+        }
+    }
+}
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
