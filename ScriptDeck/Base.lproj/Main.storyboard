@@ -11,11 +11,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="StatusScript" id="1Xt-HY-uBw">
+                            <menuItem title="ScriptDeck" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="StatusScript" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="ScriptDeck" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About StatusScript" id="5kV-Vb-QxS">
+                                        <menuItem title="About ScriptDeck" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -29,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide StatusScript" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide ScriptDeck" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -47,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit StatusScript" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit ScriptDeck" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -660,7 +660,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="StatusScript Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="ScriptDeck Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -720,7 +720,7 @@
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OKj-kw-vqV">
                                 <rect key="frame" x="20" y="275" width="486" height="21"/>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Dj9-95-Q6n">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="titleBar"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -728,7 +728,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oIx-x2-u8e">
                                 <rect key="frame" x="18" y="243" width="490" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Enter script content" id="j1V-1Q-KGN">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="titleBar"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -737,45 +737,55 @@
                                 <rect key="frame" x="228" y="3" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d9X-7M-VGy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="titleBar"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="didTapSave:" target="XfG-lQ-9wD" id="ih1-6s-7AV"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RxW-FB-cs5">
-                                <rect key="frame" x="20" y="47" width="486" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="dUP-Pr-jw7"/>
-                                </constraints>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cyA-Hf-DNd">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r38-IR-h0Y">
+                                <rect key="frame" x="18" y="7" width="38" height="25"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="kA8-Zb-fmp">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="titleBar"/>
+                                    <menu key="menu" id="0CQ-wV-diV"/>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFV-Ta-atW">
+                                <rect key="frame" x="471" y="7" width="38" height="25"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="m8p-4Q-17j">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="titleBar"/>
+                                    <menu key="menu" id="rVt-kC-s87"/>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="oIx-x2-u8e" firstAttribute="leading" secondItem="OKj-kw-vqV" secondAttribute="leading" id="6Mm-Td-GRe"/>
                             <constraint firstAttribute="trailing" secondItem="7zn-bp-C8p" secondAttribute="trailing" constant="20" symbolic="YES" id="78z-GU-NQR"/>
                             <constraint firstItem="7zn-bp-C8p" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="7lC-vB-ysY"/>
-                            <constraint firstItem="RxW-FB-cs5" firstAttribute="leading" secondItem="oIx-x2-u8e" secondAttribute="leading" id="FFz-vG-eIY"/>
+                            <constraint firstItem="DBY-zj-o0g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r38-IR-h0Y" secondAttribute="trailing" id="9jJ-8r-qrw"/>
+                            <constraint firstItem="r38-IR-h0Y" firstAttribute="leading" secondItem="oIx-x2-u8e" secondAttribute="leading" id="LaC-b5-PeV"/>
                             <constraint firstItem="DBY-zj-o0g" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="M2v-CG-9TC"/>
-                            <constraint firstItem="RxW-FB-cs5" firstAttribute="trailing" secondItem="oIx-x2-u8e" secondAttribute="trailing" id="Omw-WC-S0s"/>
                             <constraint firstAttribute="bottom" secondItem="DBY-zj-o0g" secondAttribute="bottom" constant="10" id="P2j-0h-pRM"/>
+                            <constraint firstItem="GFV-Ta-atW" firstAttribute="centerY" secondItem="DBY-zj-o0g" secondAttribute="centerY" id="UQQ-I5-Uu4"/>
                             <constraint firstItem="7zn-bp-C8p" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="UTw-Ie-Ysw"/>
+                            <constraint firstItem="GFV-Ta-atW" firstAttribute="trailing" secondItem="OKj-kw-vqV" secondAttribute="trailing" id="UjL-CU-WfI"/>
                             <constraint firstItem="oIx-x2-u8e" firstAttribute="trailing" secondItem="OKj-kw-vqV" secondAttribute="trailing" id="YDd-jU-Azq"/>
                             <constraint firstItem="OKj-kw-vqV" firstAttribute="trailing" secondItem="7zn-bp-C8p" secondAttribute="trailing" id="ZXM-EY-afO"/>
                             <constraint firstItem="OKj-kw-vqV" firstAttribute="leading" secondItem="7zn-bp-C8p" secondAttribute="leading" id="aap-ij-8fx"/>
+                            <constraint firstItem="GFV-Ta-atW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DBY-zj-o0g" secondAttribute="trailing" id="bbu-6c-xfK"/>
                             <constraint firstItem="oIx-x2-u8e" firstAttribute="top" secondItem="OKj-kw-vqV" secondAttribute="bottom" constant="16" id="bfA-07-O4f"/>
-                            <constraint firstItem="RxW-FB-cs5" firstAttribute="top" secondItem="oIx-x2-u8e" secondAttribute="bottom" constant="16" id="pZF-Va-xdL"/>
-                            <constraint firstItem="DBY-zj-o0g" firstAttribute="top" secondItem="RxW-FB-cs5" secondAttribute="bottom" constant="16" id="rvg-va-zUX"/>
+                            <constraint firstItem="r38-IR-h0Y" firstAttribute="centerY" secondItem="DBY-zj-o0g" secondAttribute="centerY" id="oz3-KM-g8P"/>
                             <constraint firstItem="OKj-kw-vqV" firstAttribute="top" secondItem="7zn-bp-C8p" secondAttribute="bottom" constant="16" id="xXm-oF-R3J"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fileNameTextField" destination="OKj-kw-vqV" id="963-w8-tUE"/>
-                        <outlet property="scriptTextField" destination="RxW-FB-cs5" id="6cd-tM-Ftz"/>
+                        <outlet property="languageDropDown" destination="GFV-Ta-atW" id="dzO-Tf-Fv2"/>
+                        <outlet property="saveButton" destination="DBY-zj-o0g" id="9By-fF-85u"/>
+                        <outlet property="scriptContentTitleLabel" destination="oIx-x2-u8e" id="3Yz-na-dd5"/>
+                        <outlet property="themeDropDown" destination="r38-IR-h0Y" id="wEw-FW-e7h"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
