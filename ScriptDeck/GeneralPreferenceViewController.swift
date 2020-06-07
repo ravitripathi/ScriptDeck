@@ -15,12 +15,16 @@ final class GeneralPreferenceViewController: NSViewController, PreferencePane {
     @IBOutlet weak var themePopUp: NSPopUpButton!
     
     
+    @IBOutlet weak var defaultTerminalButton: NSButton!
     @IBAction func pickDefaultTerminal(_ sender: NSButton) {
-        
+        if let url = NSOpenPanel().selectUrl {
+            UserDefaults.standard.terminalPath = url.path
+            sender.title = url.lastPathComponent
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        defaultTerminalButton.title = UserDefaults.standard.terminalPath
         for theme in codeAS.highlightr.availableThemes() {
             themePopUp.addItem(withTitle: theme)
         }

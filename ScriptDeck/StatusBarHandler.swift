@@ -94,12 +94,8 @@ class StatusBarHandler: NSObject {
         let shellScript = shellScripts[sender.tag]
         
         if !self.runInBackground {
-            var command = "open \(shellScript.filePath) -a"
-            if checkItermInstalled() {
-                command.append(contentsOf: " iTerm")
-            } else {
-                command.append(contentsOf: " Terminal")
-            }
+            var command = "open \(shellScript.filePath) -a "
+            command.append(contentsOf: UserDefaults.standard.terminalPath)
             shell(command)
         } else {
             backgroundShell(shellScript)
