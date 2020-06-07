@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GeneralPreferenceViewController" customModule="ScriptDeck" customModuleProvider="target">
             <connections>
+                <outlet property="defaultTerminalButton" destination="AeJ-us-BJO" id="eOR-9Y-9Av"/>
                 <outlet property="languagePopUp" destination="w0h-T1-CL3" id="Q6A-2z-9nu"/>
                 <outlet property="themePopUp" destination="3Ab-aZ-SDF" id="CP6-VD-itB"/>
                 <outlet property="view" destination="c22-O7-iKe" id="ZQe-UH-LCX"/>
@@ -66,7 +67,7 @@
                             <textField key="contentView" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GrH-Fc-hHA" userLabel="Set the default theme for the script editor">
                                 <rect key="frame" x="229" y="86" width="223" height="14"/>
                                 <textFieldCell key="cell" selectable="YES" title="Set the default theme for the script editor" id="QqU-Xz-7dB" userLabel="Set the default theme for the script editor">
-                                    <font key="font" metaFont="menu" size="11"/>
+                                    <font key="font" metaFont="label" size="11"/>
                                     <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -121,7 +122,7 @@
                             <textField key="contentView" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-EK-ORe">
                                 <rect key="frame" x="229" y="1" width="146" height="16"/>
                                 <textFieldCell key="cell" selectable="YES" title="Select default terminal app" id="NOF-sJ-b0B">
-                                    <font key="font" metaFont="menu" size="11"/>
+                                    <font key="font" metaFont="label" size="11"/>
                                     <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
