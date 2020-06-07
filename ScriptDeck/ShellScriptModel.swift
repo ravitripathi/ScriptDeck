@@ -1,6 +1,6 @@
 //
 //  ShellScriptModel.swift
-//  StatusScript
+//  ScriptDeck
 //
 //  Created by Ravi Tripathi on 31/05/20.
 //

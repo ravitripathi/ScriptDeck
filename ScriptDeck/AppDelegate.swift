@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  StatusScript
+//  ScriptDeck
 //
 //  Created by Ravi Tripathi on 31/05/20.
 //
@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             var isDirectory: ObjCBool = true
-            let fullUrl = url.appendingPathComponent("StatusScriptStore")
+            let fullUrl = url.appendingPathComponent("ScriptDeckStore")
             if !FileManager.default.fileExists(atPath: fullUrl.path, isDirectory: &isDirectory) {
                 try? FileManager.default.createDirectory(at: fullUrl, withIntermediateDirectories: false, attributes: nil)
             }
