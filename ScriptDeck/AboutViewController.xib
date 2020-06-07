@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutViewController" customModule="ScriptDeck" customModuleProvider="target">
+            <connections>
+                <outlet property="repoURLField" destination="3mg-kD-1JE" id="Iu7-pT-Dre"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="538" height="466"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-M4-JLs">
+                    <rect key="frame" x="247" y="283" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Fn8-aT-Iav"/>
+                        <constraint firstAttribute="width" constant="45" id="SVP-Eo-WDY"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="largeIcon" id="ddn-xj-vM6"/>
+                    <color key="contentTintColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZqM-Kb-qiB">
+                    <rect key="frame" x="195" y="218" width="148" height="31"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="ScriptDeck" id="Q0g-c7-qmy">
+                        <font key="font" size="24" name="SourceCodeProForPowerline-Bold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BOx-bO-Vst">
+                    <rect key="frame" x="14" y="108" width="510" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Copyright © 2020 Ravi Tripathi. All rights reserved." id="Zxn-cj-J0c">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g1U-jc-T1i">
+                    <rect key="frame" x="14" y="140" width="510" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Email:  ravitripathi1996@gmail.com" id="kNo-QI-Ksh">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3mg-kD-1JE">
+                    <rect key="frame" x="139" y="172" width="261" height="16"/>
+                    <textFieldCell key="cell" selectable="YES" alignment="center" title="https://github.com/ravitripathi/ScriptDeck" allowsEditingTextAttributes="YES" usesSingleLineMode="YES" id="4LI-kR-omh">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="g1U-jc-T1i" firstAttribute="top" secondItem="3mg-kD-1JE" secondAttribute="bottom" constant="16" id="21O-6E-JEG"/>
+                <constraint firstItem="ZqM-Kb-qiB" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="4yT-N0-P3N"/>
+                <constraint firstItem="BOx-bO-Vst" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="7vz-0c-OIm"/>
+                <constraint firstItem="3mg-kD-1JE" firstAttribute="top" secondItem="ZqM-Kb-qiB" secondAttribute="bottom" constant="30" id="9gx-gC-j0w"/>
+                <constraint firstItem="BOx-bO-Vst" firstAttribute="top" secondItem="g1U-jc-T1i" secondAttribute="bottom" constant="16" id="HGe-Z7-Wnr"/>
+                <constraint firstItem="ZqM-Kb-qiB" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="J9U-ef-fMn"/>
+                <constraint firstAttribute="trailing" secondItem="g1U-jc-T1i" secondAttribute="trailing" constant="16" id="KiD-jy-kW3"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BOx-bO-Vst" secondAttribute="bottom" constant="16" id="Qck-pW-FhO"/>
+                <constraint firstItem="ZqM-Kb-qiB" firstAttribute="top" secondItem="tLL-M4-JLs" secondAttribute="bottom" constant="34" id="UAC-FH-4Ei"/>
+                <constraint firstItem="g1U-jc-T1i" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="X2o-0F-6cu"/>
+                <constraint firstItem="tLL-M4-JLs" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="sPm-b5-Hpc"/>
+                <constraint firstItem="3mg-kD-1JE" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="t5J-df-oDL"/>
+                <constraint firstAttribute="trailing" secondItem="BOx-bO-Vst" secondAttribute="trailing" constant="16" id="wuR-4M-fNu"/>
+            </constraints>
+            <point key="canvasLocation" x="168" y="250"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="largeIcon" width="32" height="32"/>
+    </resources>
+</document>
