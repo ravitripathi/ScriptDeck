@@ -16,6 +16,8 @@ class ScriptEditorController: NSViewController {
     
     @IBOutlet weak var saveButton: NSButton!
     let textStorage = CodeAttributedString()
+    var languageObserver: NSKeyValueObservation?
+    var themeObserver: NSKeyValueObservation?
     @IBOutlet weak var themeDropDown: NSPopUpButton!
     @IBOutlet weak var languageDropDown: NSPopUpButton!
     @IBOutlet weak var scriptContentTitleLabel: NSTextField!
@@ -23,10 +25,6 @@ class ScriptEditorController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupDropDowns()
-        textStorage.language = "bash"
-        textStorage.highlightr.setTheme(to: "solarized-dark")
-        //        high.
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
         
@@ -45,11 +43,21 @@ class ScriptEditorController: NSViewController {
         scriptTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16.0).isActive = true
         scriptTextField.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -16.0).isActive = true
         
+        setupDropDowns()
+        
         languageDropDown.action = #selector(self.didSelectLanguage(_:))
         languageDropDown.target = self
         
         themeDropDown.action = #selector(self.didSelectTheme(_:))
         themeDropDown.target = self
+        
+        languageObserver = UserDefaults.standard.observe(\.language, options: [.new,.old], changeHandler: { [weak self] (object, change) in
+            self?.setPreferredValues()
+        })
+        
+        themeObserver = UserDefaults.standard.observe(\.theme, options: [.new,.old], changeHandler: { [weak self] (object, change) in
+            self?.setPreferredValues()
+        })
     }
     
     func setupDropDowns() {
@@ -59,22 +67,30 @@ class ScriptEditorController: NSViewController {
         for language in self.textStorage.highlightr.supportedLanguages() {
             languageDropDown.addItem(withTitle: language)
         }
+        setPreferredValues()
+    }
+    
+    func setPreferredValues() {
         if let bashIndex = self.textStorage.highlightr.supportedLanguages().firstIndex(where: { (string) -> Bool in
-            string == "bash"
+            string == UserDefaults.standard.language
         }) {
             languageDropDown.selectItem(at: bashIndex)
         }
         
-        if let themeIndex = self.textStorage.highlightr.supportedLanguages().firstIndex(where: { (string) -> Bool in
-            string == "solarized-dark"
+        if let themeIndex = self.textStorage.highlightr.availableThemes().firstIndex(where: { (string) -> Bool in
+            string == UserDefaults.standard.theme
         }) {
-            languageDropDown.selectItem(at: themeIndex)
+            themeDropDown.selectItem(at: themeIndex)
         }
+        textStorage.language = UserDefaults.standard.language
+        textStorage.highlightr.setTheme(to: UserDefaults.standard.theme)
+        scriptTextField.backgroundColor = textStorage.highlightr.theme.themeBackgroundColor
     }
     
     @objc func didSelectLanguage(_ sender: NSPopUpButton) {
         if let langString = sender.selectedItem?.title {
             textStorage.language = langString
+            UserDefaults.standard.language = langString
         }
     }
     
@@ -82,6 +98,7 @@ class ScriptEditorController: NSViewController {
         if let themeString = sender.selectedItem?.title {
             textStorage.highlightr.setTheme(to: themeString)
             scriptTextField.backgroundColor = textStorage.highlightr.theme.themeBackgroundColor
+            UserDefaults.standard.theme = themeString
         }
     }
     
@@ -135,6 +152,11 @@ class ScriptEditorController: NSViewController {
     //        // Update the view, if already loaded.
     //        }
     //    }
+    
+    deinit {
+        languageObserver?.invalidate()
+        themeObserver?.invalidate()
+    }
     
 }
 
