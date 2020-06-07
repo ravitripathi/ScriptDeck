@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		414A0863248D4E92003C5EDB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 414A0862248D4E92003C5EDB /* Info.plist */; };
-		414A0866248D4F7C003C5EDB /* Highlightr.framework.dSYM in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */; };
 		414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AC92483C1D500E55291 /* AppDelegate.swift */; };
 		414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4ACB2483C1D500E55291 /* ViewController.swift */; };
 		414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACD2483C1D800E55291 /* Assets.xcassets */; };
 		414F4AD12483C1D800E55291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACF2483C1D800E55291 /* Main.storyboard */; };
 		414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AD92484067C00E55291 /* ScriptEditorController.swift */; };
+		41A45256248D5185008F845F /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; };
+		41A45257248D5185008F845F /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41A4525A248D51C1008F845F /* Highlightr.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 41A45259248D51C1008F845F /* Highlightr.framework.dSYM */; };
+		41A4525B248D51C8008F845F /* Highlightr.framework.dSYM in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 41A45259248D51C1008F845F /* Highlightr.framework.dSYM */; };
 		41E9036D248CD0690060AB93 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 41E9036C248CD0690060AB93 /* Preferences */; };
-		41E90373248D25FA0060AB93 /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; };
-		41E90374248D25FA0060AB93 /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F31248428700006EFDB /* ShellScriptModel.swift */; };
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
 /* End PBXBuildFile section */
@@ -28,18 +28,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				414A0866248D4F7C003C5EDB /* Highlightr.framework.dSYM in Carthage Copy Files */,
+				41A4525B248D51C8008F845F /* Highlightr.framework.dSYM in Carthage Copy Files */,
 			);
 			name = "Carthage Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		41E90375248D25FA0060AB93 /* Embed Frameworks */ = {
+		41A45258248D5185008F845F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				41E90374248D25FA0060AB93 /* Highlightr.framework in Embed Frameworks */,
+				41A45257248D5185008F845F /* Highlightr.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		414A0862248D4E92003C5EDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Highlightr.framework.dSYM; sourceTree = "<group>"; };
 		414F4AC62483C1D500E55291 /* ScriptDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScriptDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		414F4AC92483C1D500E55291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		414F4ACB2483C1D500E55291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		414F4AD02483C1D800E55291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScriptDeck.entitlements; sourceTree = "<group>"; };
 		414F4AD92484067C00E55291 /* ScriptEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditorController.swift; sourceTree = "<group>"; };
+		41A45259248D51C1008F845F /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Highlightr.framework.dSYM; path = Carthage/Build/Mac/Highlightr.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		41E90372248D25FA0060AB93 /* Highlightr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Highlightr.framework; path = Carthage/Build/Mac/Highlightr.framework; sourceTree = "<group>"; };
 		41EB4F31248428700006EFDB /* ShellScriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScriptModel.swift; sourceTree = "<group>"; };
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41E90373248D25FA0060AB93 /* Highlightr.framework in Frameworks */,
+				41A45256248D5185008F845F /* Highlightr.framework in Frameworks */,
 				41E9036D248CD0690060AB93 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +103,7 @@
 				414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */,
 				41EB4F31248428700006EFDB /* ShellScriptModel.swift */,
 				41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */,
-				414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */,
+				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
 			);
 			path = ScriptDeck;
 			sourceTree = "<group>";
@@ -126,8 +126,8 @@
 				414F4AC22483C1D500E55291 /* Sources */,
 				414F4AC32483C1D500E55291 /* Frameworks */,
 				414F4AC42483C1D500E55291 /* Resources */,
-				41E90375248D25FA0060AB93 /* Embed Frameworks */,
 				414A0864248D4F4C003C5EDB /* Carthage Copy Files */,
+				41A45258248D5185008F845F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,7 +183,7 @@
 			files = (
 				414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */,
 				414F4AD12483C1D800E55291 /* Main.storyboard in Resources */,
-				414A0863248D4E92003C5EDB /* Info.plist in Resources */,
+				41A4525A248D51C1008F845F /* Highlightr.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ScriptDeck/ScriptDeck.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -350,6 +351,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.ScriptDeck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -359,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ScriptDeck/ScriptDeck.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -375,6 +378,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.ScriptDeck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
