@@ -25,9 +25,15 @@ class StatusBarHandler {
         shellScripts = [ShellScriptModel]()
         let enumerator = FileManager.default.enumerator(atPath: fullUrl.path)
         let filePaths = enumerator?.allObjects as! [String]
-        let shellScriptPaths = filePaths.filter{$0.contains(".sh")}
-        for shellScriptPath in shellScriptPaths {
-            shellScripts.append(ShellScriptModel(name: shellScriptPath, filePath: fullUrl.path.appending("/\(shellScriptPath)")))
+        //Fetches only sh files
+        //let shellScriptPaths = filePaths.filter{$0.contains(".sh")}
+        for scriptPath in filePaths {
+            if let attributes = try? FileManager.default.attributesOfItem(atPath: fullUrl.path.appending("/\(scriptPath)")) {
+                // Check if the file is executable
+                if (attributes[.posixPermissions] as? NSNumber) == 0o777 {
+                    shellScripts.append(ShellScriptModel(name: scriptPath, filePath: fullUrl.path.appending("/\(scriptPath)")))
+                }
+            }
         }
     }
     

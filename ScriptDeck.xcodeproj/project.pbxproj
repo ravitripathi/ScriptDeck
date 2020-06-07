@@ -3,28 +3,60 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414A0863248D4E92003C5EDB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 414A0862248D4E92003C5EDB /* Info.plist */; };
+		414A0866248D4F7C003C5EDB /* Highlightr.framework.dSYM in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */; };
 		414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AC92483C1D500E55291 /* AppDelegate.swift */; };
 		414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4ACB2483C1D500E55291 /* ViewController.swift */; };
 		414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACD2483C1D800E55291 /* Assets.xcassets */; };
 		414F4AD12483C1D800E55291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACF2483C1D800E55291 /* Main.storyboard */; };
 		414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AD92484067C00E55291 /* ScriptEditorController.swift */; };
+		41E9036D248CD0690060AB93 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 41E9036C248CD0690060AB93 /* Preferences */; };
+		41E90373248D25FA0060AB93 /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; };
+		41E90374248D25FA0060AB93 /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41E90372248D25FA0060AB93 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F31248428700006EFDB /* ShellScriptModel.swift */; };
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		414A0864248D4F4C003C5EDB /* Carthage Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				414A0866248D4F7C003C5EDB /* Highlightr.framework.dSYM in Carthage Copy Files */,
+			);
+			name = "Carthage Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41E90375248D25FA0060AB93 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				41E90374248D25FA0060AB93 /* Highlightr.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		414F4AC62483C1D500E55291 /* StatusScript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		414A0862248D4E92003C5EDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Highlightr.framework.dSYM; sourceTree = "<group>"; };
+		414F4AC62483C1D500E55291 /* ScriptDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScriptDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		414F4AC92483C1D500E55291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		414F4ACB2483C1D500E55291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		414F4ACD2483C1D800E55291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		414F4AD02483C1D800E55291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		414F4AD22483C1D800E55291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		414F4AD32483C1D800E55291 /* StatusScript.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StatusScript.entitlements; sourceTree = "<group>"; };
+		414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScriptDeck.entitlements; sourceTree = "<group>"; };
 		414F4AD92484067C00E55291 /* ScriptEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditorController.swift; sourceTree = "<group>"; };
+		41E90372248D25FA0060AB93 /* Highlightr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Highlightr.framework; path = Carthage/Build/Mac/Highlightr.framework; sourceTree = "<group>"; };
 		41EB4F31248428700006EFDB /* ShellScriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScriptModel.swift; sourceTree = "<group>"; };
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E90373248D25FA0060AB93 /* Highlightr.framework in Frameworks */,
+				41E9036D248CD0690060AB93 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,53 +77,68 @@
 		414F4ABD2483C1D500E55291 = {
 			isa = PBXGroup;
 			children = (
-				414F4AC82483C1D500E55291 /* StatusScript */,
+				414F4AC82483C1D500E55291 /* ScriptDeck */,
 				414F4AC72483C1D500E55291 /* Products */,
+				41E90371248D25FA0060AB93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		414F4AC72483C1D500E55291 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				414F4AC62483C1D500E55291 /* StatusScript.app */,
+				414F4AC62483C1D500E55291 /* ScriptDeck.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		414F4AC82483C1D500E55291 /* StatusScript */ = {
+		414F4AC82483C1D500E55291 /* ScriptDeck */ = {
 			isa = PBXGroup;
 			children = (
 				414F4AD92484067C00E55291 /* ScriptEditorController.swift */,
 				414F4AC92483C1D500E55291 /* AppDelegate.swift */,
 				414F4ACB2483C1D500E55291 /* ViewController.swift */,
 				414F4ACD2483C1D800E55291 /* Assets.xcassets */,
+				414A0862248D4E92003C5EDB /* Info.plist */,
 				414F4ACF2483C1D800E55291 /* Main.storyboard */,
-				414F4AD22483C1D800E55291 /* Info.plist */,
-				414F4AD32483C1D800E55291 /* StatusScript.entitlements */,
+				414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */,
 				41EB4F31248428700006EFDB /* ShellScriptModel.swift */,
 				41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */,
+				414A0865248D4F7C003C5EDB /* Highlightr.framework.dSYM */,
 			);
-			path = StatusScript;
+			path = ScriptDeck;
+			sourceTree = "<group>";
+		};
+		41E90371248D25FA0060AB93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41E90372248D25FA0060AB93 /* Highlightr.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		414F4AC52483C1D500E55291 /* StatusScript */ = {
+		414F4AC52483C1D500E55291 /* ScriptDeck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 414F4AD62483C1D800E55291 /* Build configuration list for PBXNativeTarget "StatusScript" */;
+			buildConfigurationList = 414F4AD62483C1D800E55291 /* Build configuration list for PBXNativeTarget "ScriptDeck" */;
 			buildPhases = (
 				414F4AC22483C1D500E55291 /* Sources */,
 				414F4AC32483C1D500E55291 /* Frameworks */,
 				414F4AC42483C1D500E55291 /* Resources */,
+				41E90375248D25FA0060AB93 /* Embed Frameworks */,
+				414A0864248D4F4C003C5EDB /* Carthage Copy Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = StatusScript;
+			name = ScriptDeck;
+			packageProductDependencies = (
+				41E9036C248CD0690060AB93 /* Preferences */,
+			);
 			productName = StatusScript;
-			productReference = 414F4AC62483C1D500E55291 /* StatusScript.app */;
+			productReference = 414F4AC62483C1D500E55291 /* ScriptDeck.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 414F4AC12483C1D500E55291 /* Build configuration list for PBXProject "StatusScript" */;
+			buildConfigurationList = 414F4AC12483C1D500E55291 /* Build configuration list for PBXProject "ScriptDeck" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,11 +164,14 @@
 				Base,
 			);
 			mainGroup = 414F4ABD2483C1D500E55291;
+			packageReferences = (
+				41E9036B248CD0690060AB93 /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 414F4AC72483C1D500E55291 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				414F4AC52483C1D500E55291 /* StatusScript */,
+				414F4AC52483C1D500E55291 /* ScriptDeck */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +183,7 @@
 			files = (
 				414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */,
 				414F4AD12483C1D800E55291 /* Main.storyboard in Resources */,
+				414A0863248D4E92003C5EDB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,16 +333,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StatusScript/StatusScript.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ScriptDeck/ScriptDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FABQJ9SY29;
-				INFOPLIST_FILE = StatusScript/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/ScriptDeck/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.StatusScript;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.ScriptDeck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -299,16 +358,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StatusScript/StatusScript.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ScriptDeck/ScriptDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FABQJ9SY29;
-				INFOPLIST_FILE = StatusScript/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/ScriptDeck/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.StatusScript;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ravitripathi.github.io.ScriptDeck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -317,7 +382,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		414F4AC12483C1D500E55291 /* Build configuration list for PBXProject "StatusScript" */ = {
+		414F4AC12483C1D500E55291 /* Build configuration list for PBXProject "ScriptDeck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				414F4AD42483C1D800E55291 /* Debug */,
@@ -326,7 +391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		414F4AD62483C1D800E55291 /* Build configuration list for PBXNativeTarget "StatusScript" */ = {
+		414F4AD62483C1D800E55291 /* Build configuration list for PBXNativeTarget "ScriptDeck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				414F4AD72483C1D800E55291 /* Debug */,
@@ -336,6 +401,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41E9036B248CD0690060AB93 /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41E9036C248CD0690060AB93 /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41E9036B248CD0690060AB93 /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 414F4ABE2483C1D500E55291 /* Project object */;
 }
