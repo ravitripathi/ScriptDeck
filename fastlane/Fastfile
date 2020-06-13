@@ -1,8 +1,8 @@
 update_fastlane
 
-default_platform(:macos)
+default_platform(:mac)
 
-platform :macos do
+platform :mac do
   desc "Build the .app"
   lane :releaseApp do |options|
     gym()
