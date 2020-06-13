@@ -33,9 +33,9 @@ platform :mac do
         ensure_git_status_clean
 
         # check the semantic parameter entered
-        if !lane[:bump]
-            lane[:bump] = "minor"
-        end
+        # if !lane[:bump]
+        #     lane[:bump] = "minor"
+        # end
 
         # get the last commit comments from Git history# and creates our changelog
         comments = changelog_from_git_commits(
@@ -68,7 +68,10 @@ platform :mac do
         end
 
         # set the new version number
-        increment_version_number(version_number: version)
+        increment_version_number(
+            version_number: "#{version}",  
+            xcodeproj: "ScriptDeck.xcodeproj"
+        )
     end
 
     desc "Release built app on github"
