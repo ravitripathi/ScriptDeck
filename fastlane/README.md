@@ -26,11 +26,6 @@ Ship it!
 fastlane mac buildApp
 ```
 Build the .app, and store it in ~/Desktop/ScriptDeckBuilds
-### mac printS
-```
-fastlane mac printS
-```
-Sds
 ### mac bumpVersion
 ```
 fastlane mac bumpVersion

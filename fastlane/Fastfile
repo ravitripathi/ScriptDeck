@@ -105,7 +105,7 @@ platform :mac do
             name: "Release #{version}",
             tag_name: "#{version}",
             description: comments,
-            upload_assets: ["#{ENV["BuildFolder "]}/ScriptDeck.app"]
+            upload_assets: ["#{ENV["BuildFolder"]}/ScriptDeck.app"]
         )
     end
 
