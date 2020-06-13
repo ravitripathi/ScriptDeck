@@ -37,15 +37,6 @@ platform :mac do
         #     lane[:bump] = "minor"
         # end
 
-        # get the last commit comments from Git history# and creates our changelog
-        comments = changelog_from_git_commits(
-            between: [last_git_tag, "HEAD"],
-            pretty: "- %s",
-            date_format: "short",
-            match_lightweight_tag: false,
-            merge_commit_filtering: "exclude_merges"
-        )
-
         # calculates the new version according to# the semantic version added
         type = "minor"
         # old = last_git_tag
@@ -77,6 +68,15 @@ platform :mac do
     desc "Release built app on github"
     lane :releaseOnGithub do
     
+        # get the last commit comments from Git history# and creates our changelog
+        comments = changelog_from_git_commits(
+            between: [last_git_tag, "HEAD"],
+            pretty: "- %s",
+            date_format: "short",
+            match_lightweight_tag: false,
+            merge_commit_filtering: "exclude_merges"
+        )
+        
         # creates a bump version commit
         version = get_version_number()
 
