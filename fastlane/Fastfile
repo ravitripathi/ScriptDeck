@@ -33,8 +33,8 @@ platform :mac do
         ensure_git_status_clean
 
         # check the semantic parameter entered
-        if !lane[: bump]
-            lane[: bump] = "minor"
+        if !lane[:bump]
+            lane[:bump] = "minor"
         end
 
         # get the last commit comments from Git history# and creates our changelog
@@ -47,7 +47,7 @@ platform :mac do
         )
 
         # calculates the new version according to# the semantic version added
-        type = lane[: bump]
+        type = lane[:bump]
         old = last_git_tag
         version = old
 
@@ -69,7 +69,7 @@ platform :mac do
         end
 
         # set the new version number
-        increment_version_number(version_number: version)
+        increment_version_number(version_number:version)
     end
 
     desc "Release built app on github"
