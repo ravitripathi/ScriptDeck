@@ -30,12 +30,12 @@ platform :mac do
         ensure_git_branch
 
         # ensure that master branch is clean
-        ensure_git_status_clean
+        # ensure_git_status_clean
 
         # check the semantic parameter entered
-        if !lane[:bump]
-            lane[:bump] = "minor"
-        end
+        # if !lane[:bump]
+        #     lane[:bump] = "minor"
+        # end
 
         # get the last commit comments from Git history# and creates our changelog
         comments = changelog_from_git_commits(
@@ -47,8 +47,9 @@ platform :mac do
         )
 
         # calculates the new version according to# the semantic version added
-        type = lane[:bump]
-        old = last_git_tag
+        type = "minor"
+        # old = last_git_tag
+        old = '0.1.0'
         version = old
 
         old[0] = ''
@@ -106,7 +107,7 @@ platform :mac do
     end
 
     error do |lane, exception|
-        print(exception.message)
+        print(exception.backtrace)
         # Send error notification
     end
 end
