@@ -104,4 +104,9 @@ platform :mac do
             upload_assets: ["#{ENV["BuildFolder "]}/ScriptDeck.app"]
         )
     end
+
+    error do |lane, exception|
+        exception.backtrace
+        # Send error notification
+    end
 end
