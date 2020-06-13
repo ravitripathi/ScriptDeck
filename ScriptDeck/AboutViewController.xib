@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-M4-JLs">
-                    <rect key="frame" x="247" y="283" width="45" height="45"/>
+                    <rect key="frame" x="247" y="281" width="45" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Fn8-aT-Iav"/>
                         <constraint firstAttribute="width" constant="45" id="SVP-Eo-WDY"/>
@@ -27,15 +27,15 @@
                     <color key="contentTintColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZqM-Kb-qiB">
-                    <rect key="frame" x="195" y="218" width="148" height="31"/>
+                    <rect key="frame" x="210" y="219" width="119" height="28"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="ScriptDeck" id="Q0g-c7-qmy">
-                        <font key="font" size="24" name="SourceCodeProForPowerline-Bold"/>
+                        <font key="font" metaFont="system" size="24"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BOx-bO-Vst">
-                    <rect key="frame" x="14" y="108" width="510" height="16"/>
+                    <rect key="frame" x="14" y="109" width="510" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Copyright © 2020 Ravi Tripathi. All rights reserved." id="Zxn-cj-J0c">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +43,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g1U-jc-T1i">
-                    <rect key="frame" x="14" y="140" width="510" height="16"/>
+                    <rect key="frame" x="14" y="141" width="510" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Email:  ravitripathi1996@gmail.com" id="kNo-QI-Ksh">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -51,7 +51,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3mg-kD-1JE">
-                    <rect key="frame" x="139" y="172" width="261" height="16"/>
+                    <rect key="frame" x="139" y="173" width="261" height="16"/>
                     <textFieldCell key="cell" selectable="YES" alignment="center" title="https://github.com/ravitripathi/ScriptDeck" allowsEditingTextAttributes="YES" usesSingleLineMode="YES" id="4LI-kR-omh">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
