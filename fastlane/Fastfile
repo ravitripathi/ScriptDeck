@@ -21,8 +21,6 @@ platform :mac do
     ENV["BuildFolder"]  = "~/Desktop/ScriptDeckBuilds"
   end
 
-
-
   desc "Build the .app, and store it in ~/Desktop/ScriptDeckBuilds"
   lane :buildApp do
     gym(
@@ -30,4 +28,8 @@ platform :mac do
       output_directory: ENV["BuildFolder"]
     )
   end
+
+  lane :uploadToGithubRelease do
+    update_project_version(bump:bump_type, project:ENV["ALOHA_LIBRARY_PROJECT"])
+    commit_version_bump()
 end
