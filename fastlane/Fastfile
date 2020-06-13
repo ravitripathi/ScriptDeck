@@ -106,7 +106,7 @@ platform :mac do
     end
 
     error do |lane, exception|
-        exception.backtrace
+        print(exception.message)
         # Send error notification
     end
 end
