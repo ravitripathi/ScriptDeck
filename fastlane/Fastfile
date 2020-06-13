@@ -13,11 +13,21 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:ios)
+default_platform(:mac)
 
-platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+platform :mac do
+
+  before_all do 
+    ENV["BuildFolder"]  = "~/Desktop/ScriptDeckBuilds"
+  end
+
+
+
+  desc "Build the .app, and store it in ~/Desktop/ScriptDeckBuilds"
+  lane :buildApp do
+    gym(
+      skip_package_pkg: true,
+      output_directory: ENV["BuildFolder"]
+    )
   end
 end
