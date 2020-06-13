@@ -39,8 +39,7 @@ platform :mac do
 
         # calculates the new version according to# the semantic version added
         type = "minor"
-        # old = last_git_tag
-        old = '0.1.0'
+        old = last_git_tag
         version = old
 
         old[0] = ''
@@ -76,14 +75,15 @@ platform :mac do
             match_lightweight_tag: false,
             merge_commit_filtering: "exclude_merges"
         )
-        
+
         # creates a bump version commit
         version = get_version_number()
 
         commit_version_bump(
             message: "Version bumped to #{version}",
             xcodeproj: "ScriptDeck.xcodeproj",
-            no_verify: true
+            no_verify: true,
+            force: true
         )
 
         # push bump commit
