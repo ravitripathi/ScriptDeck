@@ -1,8 +1,6 @@
 update_fastlane
 fastlane_require 'dotenv'
 
-default_platform(: mac)
-
 platform: mac do
 
     before_all do
