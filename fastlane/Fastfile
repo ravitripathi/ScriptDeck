@@ -40,7 +40,7 @@ platform :mac do
         # calculates the new version according to# the semantic version added
         type = "minor"
         #old = last_git_tag
-        old = "0.2.3"
+        old = "0.4.0"
         version = old
 
         old[0] = ''
