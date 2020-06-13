@@ -40,7 +40,7 @@ platform :mac do
         # calculates the new version according to# the semantic version added
         type = "minor"
         #old = last_git_tag
-        old = "0.0.1"
+        old = "0.2.1"
         version = old
 
         old[0] = ''
@@ -103,7 +103,7 @@ platform :mac do
         github_release = set_github_release(
             api_token: ENV["GITHUB_TOKEN"],
             repository_name: "ravitripathi/ScriptDeck",
-            name: "#{type.capitalize} version v#{version}",
+            name: "#{version}",
             tag_name: "v#{version}",
             description: comments,
             commitish: "master",
