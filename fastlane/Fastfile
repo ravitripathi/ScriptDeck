@@ -52,9 +52,7 @@ platform :mac do
         version = old
 
         old[0] = ''
-        oldArr = old.split('.').map {
-            | v | v.to_i
-        }
+        oldArr = old.split('.').map{|v| v.to_i} 
 
         if type == "patch"
             version = "#{oldArr[0]}.#{oldArr[1]}.#{oldArr[2] + 1}"
