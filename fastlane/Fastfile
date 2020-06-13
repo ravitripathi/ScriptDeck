@@ -1,7 +1,8 @@
-update_fastlane
 fastlane_require 'dotenv'
 
-platform: mac do
+default_platform :mac
+
+platform :mac do
 
     before_all do
       Dotenv.overload '.env.secret'
@@ -9,14 +10,14 @@ platform: mac do
     end
 
     desc "Ship it!"
-    lane: shipIt do
+    lane :shipIt do
         bumpVersion
         buildApp
         releaseOnGithub
     end
 
     desc "Build the .app, and store it in ~/Desktop/ScriptDeckBuilds"
-    lane: buildApp do
+    lane :buildApp do
         gym(
             skip_package_pkg: true,
             output_directory: ENV["BuildFolder"]
@@ -24,7 +25,7 @@ platform: mac do
     end
 
     desc "Set version number, create git tag. Types: patch | minor | major"
-    lane: bumpVersion do
+    lane :bumpVersion do
         # ensure you are in master branch
         ensure_git_branch
 
@@ -72,7 +73,7 @@ platform: mac do
     end
 
     desc "Release built app on github"
-    lane: releaseOnGithub do
+    lane :releaseOnGithub do
     
         # creates a bump version commit
         version = get_version_number()
