@@ -82,7 +82,8 @@ platform :mac do
 
         commit_version_bump(
             message: "Version bumped to #{version}",
-            xcodeproj: "ScriptDeck.xcodeproj"
+            xcodeproj: "ScriptDeck.xcodeproj",
+            no_verify: true
         )
 
         # push bump commit
