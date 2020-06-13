@@ -1,11 +1,131 @@
-update_fastlane
+fastlane_require 'dotenv'
 
-default_platform(:macos)
+default_platform :mac
 
-platform :macos do
-  desc "Build the .app"
-  lane :releaseApp do |options|
-    gym()
-    # add actions here: https://docs.fastlane.tools/actions
-  end
+platform :mac do
+
+    before_all do
+        sh("cp ~/Documents/Arc/Secrets/.env.secret ./ ")
+        Dotenv.overload '.env.secret'
+        ENV["BuildFolder"] = "~/Desktop/ScriptDeckBuilds"
+    end
+
+    desc "Ship it!. bumpType: patch | minor | major"
+    lane :shipIt do |options|
+        # check the semantic parameter entered
+        if !options[:bumpType]
+            UI.user_error!("Missing bumpType parameter. Allowed: patch | minor | major")
+        end
+        bumpVersion(bumpType: options[:bumpType])
+        buildApp
+        releaseOnGithub
+        updateHomebrewTap
+    end
+
+    desc "Build the .app, and store it in ~/Desktop/ScriptDeckBuilds"
+    lane :buildApp do
+        gym(
+            skip_package_pkg: true,
+            output_directory: ENV["BuildFolder"]
+        )
+    end
+
+    desc "Set version number, create git tag. Types: patch | minor | major"
+    lane :bumpVersion do |options|
+        # ensure you are in master branch
+        ensure_git_branch
+
+        # ensure that master branch is clean
+        ensure_git_status_clean
+       
+        # calculates the new version according to# the semantic version added
+        type = options[:bumpType]
+        old = last_git_tag
+        version = old
+
+        old[0] = ''
+        oldArr = old.split('.').map{|v| v.to_i} 
+
+        if type == "patch"
+            version = "#{oldArr[0]}.#{oldArr[1]}.#{oldArr[2] + 1}"
+        elsif type == "minor"
+            version = "#{oldArr[0]}.#{oldArr[1] + 1}.0"
+        elsif type == "major"
+            version = "#{oldArr[0] + 1}.0.0"
+        end
+
+        if version == old
+            UI.user_error!("Wrong release type parameter. Enter: patch | minor | major")
+        end
+
+        # set the new version number
+        increment_version_number(
+            version_number: "#{version}",  
+            xcodeproj: "ScriptDeck.xcodeproj"
+        )
+    end
+
+    desc "Release built app on github"
+    lane :releaseOnGithub do
+    
+        # get the last commit comments from Git history# and creates our changelog
+        comments = changelog_from_git_commits(
+            between: [last_git_tag, "HEAD"],
+            pretty: "- %s",
+            date_format: "short",
+            match_lightweight_tag: false,
+            merge_commit_filtering: "exclude_merges"
+        )
+
+        # creates a bump version commit
+        version = get_version_number()
+
+        commit_version_bump(
+            message: "Version bumped to #{version}",
+            xcodeproj: "ScriptDeck.xcodeproj",
+            no_verify: true,
+            force: true
+        )
+
+        # push bump commit
+        push_to_git_remote(
+            tags: false
+        )
+
+        # create a local tag with the new version
+        add_git_tag(
+            message: comments,
+            tag: "#{version}",
+            build_number: version
+        )
+
+        sh("cp -R #{ENV["BuildFolder"]}/ScriptDeck.app ../ ")
+        github_release = set_github_release(
+            repository_name: "ravitripathi/ScriptDeck",
+            api_token: ENV["GITHUB_TOKEN"],
+            name: "Release #{version}",
+            tag_name: "#{version}",
+            description: comments,
+            upload_assets: ["ScriptDeck.app"]
+        )
+    end
+
+    desc "Update ravitripathi/tools homebrew tap"
+    lane :updateHomebrewTap do
+        sh("git clone https://github.com/ravitripathi/homebrew-tools.git")
+        Dir.chdir("homebrew-tools") do
+            sh("./update_scriptdeck.sh")
+        end
+    end
+
+    error do |lane, exception|
+        #print(exception.backtrace)
+        reset_git_repo(force: true)
+        sh("rm -rf homebrew-tools")
+    end
+
+    after_all do |lane, options|
+        reset_git_repo(force: true)
+        sh("rm -rf homebrew-tools")
+    end
 end
