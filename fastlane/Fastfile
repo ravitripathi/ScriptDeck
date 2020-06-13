@@ -1,24 +1,20 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
+fastlane_require 'dotenv'
 
 default_platform(:mac)
 
 platform :mac do
 
   before_all do 
+    Dotenv.overload '.env.secret'
     ENV["BuildFolder"]  = "~/Desktop/ScriptDeckBuilds"
+  end
+
+  desc "Ship it!"
+  lane :shipIt do
+    bumpVersion
+    buildApp
+    releaseOnGithub
   end
 
   desc "Build the .app, and store it in ~/Desktop/ScriptDeckBuilds"
@@ -29,7 +25,92 @@ platform :mac do
     )
   end
 
-  lane :uploadToGithubRelease do
-    update_project_version(bump:bump_type, project:ENV["ALOHA_LIBRARY_PROJECT"])
-    commit_version_bump()
+
+  desc "Set version number, create git tag. Types: patch | minor | major"
+  lane :bumpVersion do
+        # ensure you are in master branch
+        ensure_git_branch
+
+        # ensure that master branch is clean
+        ensure_git_status_clean
+    
+        # check the semantic parameter entered
+        if !lane[:bump]
+            lane[:bump] = "minor"
+        end
+    
+        # get the last commit comments from Git history
+        # and creates our changelog
+        comments = changelog_from_git_commits(
+            between: [last_git_tag, "HEAD"],
+            pretty: "- %s",
+            date_format: "short",
+            match_lightweight_tag: false, 
+            merge_commit_filtering: "exclude_merges" 
+        ) 
+    
+        # calculates the new version according to
+        # the semantic version added
+        type = lane[:bump]
+        old = last_git_tag
+        version = old
+    
+        old[0] = ''
+        oldArr = old.split('.').map{|v| v.to_i}    
+    
+        if type == "patch"
+            version = "#{oldArr[0]}.#{oldArr[1]}.#{oldArr[2] + 1}"
+        elsif type == "minor"
+            version = "#{oldArr[0]}.#{oldArr[1] + 1}.0"
+        elsif type == "major"
+            version = "#{oldArr[0] + 1}.0.0"
+        end   
+    
+        if version == old
+            UI.user_error!("Wrong release type parameter. Enter: patch | minor | major")
+        end
+    
+        # set the new version number
+        increment_version_number(version_number: version)
+    end
+
+    desc "Release built app on github"
+    lane :releaseOnGithub do
+         # creates a bump version commit 
+
+    version =  get_version_number()
+
+    commit_version_bump(
+        message: "Version bumped to #{version}",
+        xcodeproj: "ScriptDeck.xcodeproj"
+    )
+
+    # push bump commit
+    push_to_git_remote(
+        tags: false
+    )
+
+    # create a local tag with the new version
+    add_git_tag(
+        message: comments,
+        tag: "#{version}",
+        build_number: version
+    )
+    
+    # publish a new release into Github
+    github_release = set_github_release(
+        api_token: ENV["GITHUB_TOKEN"],
+        repository_name: "your-repo-user/iphone-repo",
+        name: "#{type.capitalize} version v#{version}",
+        tag_name: "v#{version}",
+        description: comments,
+        commitish: "master"
+        upload_assets: ["#{ENV["BuildFolder"]}/ScriptDeck.app"]
+    )
+    end
+
+
+
+
+
 end

@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane mac buildApp
 ```
 Build the .app, and store it in ~/Desktop/ScriptDeckBuilds
+### mac uploadToGithubRelease
+```
+fastlane mac uploadToGithubRelease
+```
+
 
 ----
 
