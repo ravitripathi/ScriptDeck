@@ -69,7 +69,7 @@ platform :mac do
         end
 
         # set the new version number
-        increment_version_number(version_number:version)
+        increment_version_number(version_number: version)
     end
 
     desc "Release built app on github"

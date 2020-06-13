@@ -16,16 +16,26 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## Mac
+### mac shipIt
+```
+fastlane mac shipIt
+```
+Ship it!
 ### mac buildApp
 ```
 fastlane mac buildApp
 ```
 Build the .app, and store it in ~/Desktop/ScriptDeckBuilds
-### mac uploadToGithubRelease
+### mac bumpVersion
 ```
-fastlane mac uploadToGithubRelease
+fastlane mac bumpVersion
 ```
-
+Set version number, create git tag. Types: patch | minor | major
+### mac releaseOnGithub
+```
+fastlane mac releaseOnGithub
+```
+Release built app on github
 
 ----
 
