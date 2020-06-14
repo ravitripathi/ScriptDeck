@@ -37,7 +37,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             StatusBarHandler.shared.constructMenu(forUrl: fullUrl)
         }
-        
+        if !UserDefaults.standard.firstTimeLaunch {
+            UserDefaults.standard.firstTimeLaunch = true
+            Onboarding.shared.show()
+        }
     }
 }
 
@@ -96,6 +99,15 @@ extension UserDefaults
         }
         set {
             set(newValue, forKey: "terminalPath")
+        }
+    }
+    
+    var firstTimeLaunch: Bool {
+        get {
+            return bool(forKey: "firstTime")
+        }
+        set {
+            set(newValue, forKey: "firstTime")
         }
     }
 }
