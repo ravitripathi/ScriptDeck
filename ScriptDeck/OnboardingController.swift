@@ -8,72 +8,88 @@
 import Cocoa
 import WebKit
 
-class OnboardingController: NSViewController, WKNavigationDelegate {
-
-    @IBOutlet weak var webView: WKWebView!
+class OnboardingController: NSViewController {
+    
+    
+    @IBOutlet weak var containerView: NSView!
     @IBOutlet weak var descriptionLabel: NSTextField!
     @IBOutlet weak var previousButton: NSButton!
     @IBOutlet weak var nextButton: NSButton!
     
-    private var imagesUrls = ["https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step1.pdf",
-    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step2.png",
-    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step3.png",
-    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step4.gif",
-    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step5.png"]
+    var texts = [
+        "Hi There! Let's get started",
+        "Add a new script by choosing the option from the menu. But before that, remember to grant the permission to access your Documents directory",
+        "Mention the executable's name along with its extension. If nothing is provided, ScriptDeck will assume it to be .sh. On clicking save, the script is generated with the executable permissions.",
+        "Click on it to execute it on Terminal. Selecting \"Run in background\" will run the script silently, and trigger macOS notifications on start and completion.",
+        "That's it! A new terminal window launches with your script running in it",
+        "Modify the default theme, language or application which executes your scripts from preferences. \n Enjoy using ScriptDeck!"
+    ]
     
     var selectedIndex = 0 {
         didSet {
             previousButton.isHidden = (selectedIndex == 0)
-            if selectedIndex == imagesUrls.count - 1 {
-                //nextButton
+            if selectedIndex == AppDelegate.imagesUrls.count - 1 {
+                nextButton.title = "Let's go!"
+                nextButton.bezelColor = .systemBlue
             }
+            descriptionLabel.stringValue = texts[selectedIndex]
         }
     }
     
-    let indicator: NSProgressIndicator = {
-        let ind = NSProgressIndicator()
-        ind.style = .spinning
-        return ind
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.navigationDelegate = self
         nextButton.action = #selector(gotoNext)
         nextButton.target = self
         previousButton.action = #selector(gotoPrev)
         previousButton.target = self
         previousButton.isHidden = true
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        webView.addSubview(indicator)
-        indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor).isActive = true
-        indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor).isActive = true
-        webView.load(URLRequest(url: URL(string: imagesUrls[selectedIndex])!))
-        
+        descriptionLabel.stringValue = texts[selectedIndex]
+        set(url: AppDelegate.imagesUrls[selectedIndex])
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        indicator.stopAnimation(self)
-        indicator.isHidden = true
-    }
     
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        indicator.startAnimation(self)
-        indicator.isHidden = false
+    func set(url: URL) {
+        for sub in containerView.subviews {
+            sub.removeFromSuperview()
+        }
+        let cachedWebView = WebViewPreloader.shared.webview(for: url)
+        cachedWebView.frame = containerView.bounds
+        containerView.addSubview(cachedWebView)
     }
     
     @objc func gotoNext() {
-        if selectedIndex < imagesUrls.count-1 {
+        if selectedIndex < AppDelegate.imagesUrls.count-1 {
             selectedIndex += 1
-            webView.load(URLRequest(url: URL(string: imagesUrls[selectedIndex])!))
+            set(url: AppDelegate.imagesUrls[selectedIndex])
+        } else {
+            Onboarding.shared.close()
         }
     }
     
     @objc func gotoPrev() {
         if selectedIndex > 0 {
             selectedIndex -= 1
-            webView.load(URLRequest(url: URL(string: imagesUrls[selectedIndex])!))
+            set(url: AppDelegate.imagesUrls[selectedIndex])
         }
     }
+}
+
+class Onboarding {
     
+    static let shared = Onboarding()
+    
+    private var windowController: NSWindowController?
+    
+    func show() {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let newWindowController = storyboard.instantiateController(withIdentifier: "OnboardingWindow") as! NSWindowController
+        windowController = newWindowController
+        windowController?.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
+        windowController?.window?.center()
+    }
+    
+    func close() {
+        windowController?.close()
+    }
 }

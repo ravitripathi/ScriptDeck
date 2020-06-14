@@ -16,14 +16,6 @@ class StatusBarHandler: NSObject {
     var shellScripts = [ShellScriptModel]()
     var runInBackgroundItem: NSMenuItem?
     
-//    var windowController: NSWindowController!
-//    var window: NSWindow!
-    var onboardingWindowController: NSWindowController = {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: "OnboardingWindow") as! NSWindowController
-        return windowController
-    }()
-    
     var preferencesStyle: Preferences.Style {
         get { .preferencesStyleFromUserDefaults() }
         set {
@@ -86,40 +78,17 @@ class StatusBarHandler: NSObject {
         let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
         pref.target = self
         menu.addItem(pref)
-//        
-//        let onboarding =  NSMenuItem(title: "Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
-//        onboarding.target = self
-//        menu.addItem(onboarding)
+
+        let onboarding =  NSMenuItem(title: "Show Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
+        onboarding.target = self
+        menu.addItem(onboarding)
         
         menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         statusItem.menu = menu
     }
     
     @objc func onboard() {
-        onboardingWindowController.showWindow(self)
-//        window = NSWindow()
-//        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
-//        window.backingType = .buffered
-//        window.contentViewController = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
-//        window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
-//        windowController = NSWindowController()
-//        windowController.contentViewController = window.contentViewController
-//        windowController.window = window
-//        windowController.showWindow(self)
-        
-        
-        
-        
-//        let controller = NSViewController()
-//        let onbController = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
-//        controller.view = onbController.view
-//
-//        let window = NSWindow(contentRect: NSRect(origin: .zero, size: CGSize(width: 400, height: 400)), styleMask: .closable, backing: .buffered, defer: false)
-//        let windowC = NSWindowController(window: window)
-//        windowC.contentViewController = controller
-//
-//        windowC.showWindow(self)
-        
+        Onboarding.shared.show()
     }
     
     @objc func showPreferences() {
