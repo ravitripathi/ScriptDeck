@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -674,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StatusScript" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ScriptDeck" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -701,10 +702,95 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Onboarding Window Controller-->
+        <scene sceneID="aag-v6-dZ1">
+            <objects>
+                <windowController storyboardIdentifier="OnboardingWindow" id="GZr-Ng-D7m" userLabel="Onboarding Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Welcome" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="e2g-jR-NES" userLabel="Welcome">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="GZr-Ng-D7m" id="2w4-GQ-oOB"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Pq2-uV-HT0" kind="relationship" relationship="window.shadowedContentViewController" id="7DJ-wo-jmT"/>
+                    </connections>
+                </windowController>
+                <customObject id="a2q-c4-OA1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="140"/>
+        </scene>
+        <!--Onboarding Controller-->
+        <scene sceneID="xJt-d2-rUB">
+            <objects>
+                <viewController id="Pq2-uV-HT0" customClass="OnboardingController" customModule="ScriptDeck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="iEg-Sa-Ut0">
+                        <rect key="frame" x="0.0" y="0.0" width="606" height="481"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uJu-Hc-ivK">
+                                <rect key="frame" x="14" y="13" width="93" height="32"/>
+                                <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z9s-kx-74u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I1W-G8-big">
+                                <rect key="frame" x="523" y="13" width="69" height="32"/>
+                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yST-0w-lOA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Br9-km-Rtg">
+                                <rect key="frame" x="103" y="91" width="400" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="7Qb-aY-sGa"/>
+                                    <constraint firstAttribute="width" constant="400" id="vj6-UL-cvA"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-6C-Wfh">
+                                <rect key="frame" x="257" y="56" width="92" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="jBs-ex-Rae">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Br9-km-Rtg" firstAttribute="centerX" secondItem="iEg-Sa-Ut0" secondAttribute="centerX" id="5SA-dE-tdr"/>
+                            <constraint firstAttribute="bottom" secondItem="uJu-Hc-ivK" secondAttribute="bottom" constant="20" symbolic="YES" id="61i-Gg-t2z"/>
+                            <constraint firstItem="Br9-km-Rtg" firstAttribute="centerY" secondItem="iEg-Sa-Ut0" secondAttribute="centerY" id="6HQ-zF-jGk"/>
+                            <constraint firstItem="uJu-Hc-ivK" firstAttribute="top" secondItem="lm1-6C-Wfh" secondAttribute="bottom" constant="15" id="NXn-Ek-i7S"/>
+                            <constraint firstAttribute="bottom" secondItem="I1W-G8-big" secondAttribute="bottom" constant="20" symbolic="YES" id="Q2B-dG-RE0"/>
+                            <constraint firstItem="lm1-6C-Wfh" firstAttribute="centerX" secondItem="iEg-Sa-Ut0" secondAttribute="centerX" id="Y7L-mm-nqX"/>
+                            <constraint firstAttribute="trailing" secondItem="I1W-G8-big" secondAttribute="trailing" constant="20" symbolic="YES" id="c5W-QS-jUo"/>
+                            <constraint firstItem="uJu-Hc-ivK" firstAttribute="leading" secondItem="iEg-Sa-Ut0" secondAttribute="leading" constant="20" symbolic="YES" id="yzs-Ho-tqO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="lm1-6C-Wfh" id="Tt5-TQ-HjW"/>
+                        <outlet property="nextButton" destination="I1W-G8-big" id="knj-fx-zK9"/>
+                        <outlet property="previousButton" destination="uJu-Hc-ivK" id="IOk-WH-sbz"/>
+                        <outlet property="webView" destination="Br9-km-Rtg" id="ak2-MC-rso"/>
+                    </connections>
+                </viewController>
+                <customObject id="3wC-Hg-5lE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941" y="743.5"/>
+        </scene>
         <!--Add New Script-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Add New Script" storyboardIdentifier="ScriptEditorController" id="XfG-lQ-9wD" customClass="ScriptEditorController" customModule="StatusScript" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add New Script" storyboardIdentifier="ScriptEditorController" id="XfG-lQ-9wD" customClass="ScriptEditorController" customModule="ScriptDeck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="526" height="348"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -720,7 +806,7 @@
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OKj-kw-vqV">
                                 <rect key="frame" x="20" y="275" width="486" height="21"/>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Dj9-95-Q6n">
-                                    <font key="font" metaFont="titleBar"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -728,7 +814,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oIx-x2-u8e">
                                 <rect key="frame" x="18" y="243" width="490" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Enter script content" id="j1V-1Q-KGN">
-                                    <font key="font" metaFont="titleBar"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -737,7 +823,7 @@
                                 <rect key="frame" x="228" y="3" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d9X-7M-VGy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="titleBar"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="didTapSave:" target="XfG-lQ-9wD" id="ih1-6s-7AV"/>
@@ -747,7 +833,7 @@
                                 <rect key="frame" x="18" y="7" width="38" height="25"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="kA8-Zb-fmp">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="titleBar"/>
+                                    <font key="font" metaFont="system"/>
                                     <menu key="menu" id="0CQ-wV-diV"/>
                                 </popUpButtonCell>
                             </popUpButton>
@@ -755,7 +841,7 @@
                                 <rect key="frame" x="471" y="7" width="38" height="25"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="m8p-4Q-17j">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="titleBar"/>
+                                    <font key="font" metaFont="system"/>
                                     <menu key="menu" id="rVt-kC-s87"/>
                                 </popUpButtonCell>
                             </popUpButton>

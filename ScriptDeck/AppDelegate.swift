@@ -11,6 +11,12 @@ import Preferences
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    var imagesUrls = ["https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step1.pdf",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step2.png",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step3.png",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step4.gif",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step5.png"]
+    
     static var windowController: NSWindowController = {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController

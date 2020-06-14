@@ -26,6 +26,7 @@
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
 		41F2D00524964387008FE9CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2D00324964387008FE9CF /* OnboardingViewController.swift */; };
 		41F2D00624964387008FE9CF /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F2D00424964387008FE9CF /* OnboardingViewController.xib */; };
+		41F2D00824966B2E008FE9CF /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2D00724966B2E008FE9CF /* OnboardingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,7 @@
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
 		41F2D00324964387008FE9CF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		41F2D00424964387008FE9CF /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		41F2D00724966B2E008FE9CF /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
 				41F2D00324964387008FE9CF /* OnboardingViewController.swift */,
 				41F2D00424964387008FE9CF /* OnboardingViewController.xib */,
+				41F2D00724966B2E008FE9CF /* OnboardingController.swift */,
 			);
 			path = ScriptDeck;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */,
 				41F2D00524964387008FE9CF /* OnboardingViewController.swift in Sources */,
 				416DC528248D864D009B01E7 /* AboutViewController.swift in Sources */,
+				41F2D00824966B2E008FE9CF /* OnboardingController.swift in Sources */,
 				41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,11 @@ import Cocoa
 
 class OnboardingViewController: NSPageController, NSPageControllerDelegate {
 
-    private var images = [NSImage]()
+    private var imagesUrls = ["https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step1.pdf",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step2.png",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step3.png",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step4.gif",
+    "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step5.png"]
     @IBOutlet weak var imageView: NSImageView!
     
     
@@ -44,6 +48,7 @@ class OnboardingViewController: NSPageController, NSPageControllerDelegate {
     
     func pageControllerWillStartLiveTransition(_ pageController: NSPageController) {
         print(pageController.selectedIndex)
+        imageView.setImageFromURl(ImageUrl: imagesUrls[pageController.selectedIndex])
     }
     
     func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
@@ -51,16 +56,9 @@ class OnboardingViewController: NSPageController, NSPageControllerDelegate {
     }
 
     override func viewDidLoad() {
-        
-        
-        
-        
         super.viewDidLoad()
-        
-        images.append(NSImage(named:"largeIcon")!)
-        images.append(NSImage(named:"largeIcon")!)
-        arrangedObjects = images
-        imageView.setImageFromURl(ImageUrl: "https://github.com/ravitripathi/ScriptDeck/raw/master/ScriptDeck/Assets.xcassets/step2.imageset/step2.png")
+        arrangedObjects = imagesUrls
+        imageView.setImageFromURl(ImageUrl: imagesUrls.first!)
         delegate = self
     }
 }
