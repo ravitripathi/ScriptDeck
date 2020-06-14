@@ -51,10 +51,16 @@ class OnboardingViewController: NSPageController, NSPageControllerDelegate {
     }
 
     override func viewDidLoad() {
+        
+        
+        
+        
         super.viewDidLoad()
+        
         images.append(NSImage(named:"largeIcon")!)
         images.append(NSImage(named:"largeIcon")!)
         arrangedObjects = images
+        imageView.setImageFromURl(ImageUrl: "https://github.com/ravitripathi/ScriptDeck/raw/master/ScriptDeck/Assets.xcassets/step2.imageset/step2.png")
         delegate = self
     }
 }

@@ -79,9 +79,9 @@ class StatusBarHandler: NSObject {
         pref.target = self
         menu.addItem(pref)
         
-//        let onboarding =  NSMenuItem(title: "Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
-//        onboarding.target = self
-//        menu.addItem(onboarding)
+        let onboarding =  NSMenuItem(title: "Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
+        onboarding.target = self
+        menu.addItem(onboarding)
         
         menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         statusItem.menu = menu
