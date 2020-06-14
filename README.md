@@ -26,6 +26,7 @@ brew cask install scriptdeck
 - Scripts are saved in ~/Documents/ScriptDeckStore with executable permissions.
 - Background mode runs the script without launching a terminal instance. macOS notifications are triggered at the start and completion of your script.
 - Ships with a editor with syntax highlighting, powered by [Highlightr](https://github.com/raspu/Highlightr)
+- Scripts are launched with the default Terminal.app. If you prefer iTerm or any other terminal app, select it in the `Preferences` window.
 
 # Existing scripts
 
