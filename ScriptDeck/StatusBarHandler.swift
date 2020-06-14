@@ -78,8 +78,19 @@ class StatusBarHandler: NSObject {
         let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
         pref.target = self
         menu.addItem(pref)
+        
+//        let onboarding =  NSMenuItem(title: "Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
+//        onboarding.target = self
+//        menu.addItem(onboarding)
+        
         menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         statusItem.menu = menu
+    }
+    
+    @objc func onboard() {
+        let controller = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+        AppDelegate.windowController.contentViewController = controller
+        AppDelegate.windowController.showWindow(self)
     }
     
     @objc func showPreferences() {

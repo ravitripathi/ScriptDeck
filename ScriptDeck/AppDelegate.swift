@@ -90,3 +90,15 @@ extension UserDefaults
         }
     }
 }
+
+extension NSImageView{
+
+      func setImageFromURl(ImageUrl: String){
+
+          if let url = NSURL(string: ImageUrl) {
+              if let imagedata = NSData(contentsOf: url as URL) {
+                  self.image = NSImage(data: imagedata as Data)
+              }
+          }
+      }
+  }

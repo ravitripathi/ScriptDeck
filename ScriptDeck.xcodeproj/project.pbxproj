@@ -24,6 +24,8 @@
 		41E9036D248CD0690060AB93 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 41E9036C248CD0690060AB93 /* Preferences */; };
 		41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F31248428700006EFDB /* ShellScriptModel.swift */; };
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
+		41F2D00524964387008FE9CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2D00324964387008FE9CF /* OnboardingViewController.swift */; };
+		41F2D00624964387008FE9CF /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F2D00424964387008FE9CF /* OnboardingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +71,8 @@
 		41E90372248D25FA0060AB93 /* Highlightr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Highlightr.framework; path = Carthage/Build/Mac/Highlightr.framework; sourceTree = "<group>"; };
 		41EB4F31248428700006EFDB /* ShellScriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScriptModel.swift; sourceTree = "<group>"; };
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
+		41F2D00324964387008FE9CF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		41F2D00424964387008FE9CF /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */,
 				41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */,
 				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
+				41F2D00324964387008FE9CF /* OnboardingViewController.swift */,
+				41F2D00424964387008FE9CF /* OnboardingViewController.xib */,
 			);
 			path = ScriptDeck;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 				414F4AD12483C1D800E55291 /* Main.storyboard in Resources */,
 				41A4525A248D51C1008F845F /* Highlightr.framework.dSYM in Resources */,
 				416DC529248D864D009B01E7 /* AboutViewController.xib in Resources */,
+				41F2D00624964387008FE9CF /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +224,7 @@
 				414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */,
 				416DC525248D6B40009B01E7 /* GeneralPreferenceViewController.swift in Sources */,
 				414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */,
+				41F2D00524964387008FE9CF /* OnboardingViewController.swift in Sources */,
 				416DC528248D864D009B01E7 /* AboutViewController.swift in Sources */,
 				41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */,
 			);
