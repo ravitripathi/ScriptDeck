@@ -114,8 +114,9 @@ class StatusBarHandler: NSObject {
     }
     
     @objc func addNewScript() {
-        NSApp.activate(ignoringOtherApps: true)
         AppDelegate.windowController.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
+        AppDelegate.windowController.window?.center()
     }
     
     func checkItermInstalled() -> Bool {
