@@ -11,6 +11,8 @@ A macOS status bar app for adding and launching executable scripts
 <a href="https://img.shields.io/github/downloads/ravitripathi/ScriptDeck/total?color=green"><img src="https://img.shields.io/github/downloads/ravitripathi/ScriptDeck/total?color=green"/></a>
 </p>
 
+Got scripts scattered across your mac? Tired of changing directories and hunting for that one shell script? ScriptDeck simplifies managing scripts by providing a single place to launch them from, and maintaining a single directory for storing them.
+
 # Installation
 Add the [tools](https://github.com/ravitripathi/homebrew-tools) homebrew tap and install
 
@@ -18,3 +20,25 @@ Add the [tools](https://github.com/ravitripathi/homebrew-tools) homebrew tap and
 brew tap ravitripathi/tools
 brew cask install scriptdeck
 ```
+
+# Features
+- Add shell scripts (or any other executable script) directly from your status bar
+- Scripts are saved in ~/Documents/ScriptDeckStore with executable permissions.
+- Background mode runs the script without launching a terminal instance. macOS notifications are triggered at the start and completion of your script.
+- Ships with a editor with syntax highlighting, powered by [Highlightr](https://github.com/raspu/Highlightr)
+
+# Existing scripts
+
+For launching your exisiting shell scripts present in other directories, use the standard `source` command.
+
+`source /path/to/your/script`
+
+# Contributing
+
+File feature requests, bugs and fixes under [Issues](https://github.com/ravitripathi/ScriptDeck/issues).
+
+Shoutout to [Vaibhav](https://github.com/vshelke) for suggesting this great name!
+
+# License
+
+ScriptDeck is released under the MIT license. [See LICENSE](https://github.com/ravitripathi/ScriptDeck/blob/master/LICENSE) for details.
