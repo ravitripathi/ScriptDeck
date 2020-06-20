@@ -16,7 +16,7 @@ platform :mac do
         if !options[:bumpType]
             UI.user_error!("Missing bumpType parameter. Allowed: patch | minor | major")
         end
-        bumpVersion(bumpType: options[:bumpType])
+        # bumpVersion(bumpType: options[:bumpType])
         buildApp
         releaseOnGithub
         updateHomebrewTap
