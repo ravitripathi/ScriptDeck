@@ -78,14 +78,14 @@ platform :mac do
         )
 
         # creates a bump version commit
-        version = get_version_number()
+        # version = get_version_number()
 
-        commit_version_bump(
-            message: "Version bumped to #{version}",
-            xcodeproj: "ScriptDeck.xcodeproj",
-            no_verify: true,
-            force: true
-        )
+        # commit_version_bump(
+        #     message: "Version bumped to #{version}",
+        #     xcodeproj: "ScriptDeck.xcodeproj",
+        #     no_verify: true,
+        #     force: true
+        # )
 
         # push bump commit
         push_to_git_remote(
