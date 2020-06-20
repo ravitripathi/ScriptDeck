@@ -28,7 +28,7 @@ class OnboardingController: NSViewController {
     var selectedIndex = 0 {
         didSet {
             previousButton.isHidden = (selectedIndex == 0)
-            if selectedIndex == AppDelegate.imagesUrls.count - 1 {
+            if selectedIndex == WebViewPreloader.shared.imagesUrls.count - 1 {
                 nextButton.title = "Let's go!"
                 nextButton.bezelColor = .systemBlue
             }
@@ -44,7 +44,7 @@ class OnboardingController: NSViewController {
         previousButton.target = self
         previousButton.isHidden = true
         descriptionLabel.stringValue = texts[selectedIndex]
-        set(url: AppDelegate.imagesUrls[selectedIndex])
+        set(url: WebViewPreloader.shared.imagesUrls[selectedIndex])
     }
     
     
@@ -58,9 +58,9 @@ class OnboardingController: NSViewController {
     }
     
     @objc func gotoNext() {
-        if selectedIndex < AppDelegate.imagesUrls.count-1 {
+        if selectedIndex < WebViewPreloader.shared.imagesUrls.count-1 {
             selectedIndex += 1
-            set(url: AppDelegate.imagesUrls[selectedIndex])
+            set(url: WebViewPreloader.shared.imagesUrls[selectedIndex])
         } else {
             Onboarding.shared.close()
         }
@@ -69,7 +69,7 @@ class OnboardingController: NSViewController {
     @objc func gotoPrev() {
         if selectedIndex > 0 {
             selectedIndex -= 1
-            set(url: AppDelegate.imagesUrls[selectedIndex])
+            set(url: WebViewPreloader.shared.imagesUrls[selectedIndex])
         }
     }
 }

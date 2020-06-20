@@ -11,14 +11,6 @@ import Preferences
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    
-    static let imagesUrls = [URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/ScriptDeckLogo.png")!,
-                             URL(string: "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step1.png")!,
-                             URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step2.png")!,
-                             URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step3.png")!,
-                             URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step4.gif")!,
-                             URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step5.png")!]
-    
     static var windowController: NSWindowController = {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
@@ -27,16 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         StatusBarHandler.shared.setImage()
-        WebViewPreloader.shared.preload(urls: AppDelegate.imagesUrls)
-        
-        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            var isDirectory: ObjCBool = true
-            let fullUrl = url.appendingPathComponent("ScriptDeckStore")
-            if !FileManager.default.fileExists(atPath: fullUrl.path, isDirectory: &isDirectory) {
-                try? FileManager.default.createDirectory(at: fullUrl, withIntermediateDirectories: false, attributes: nil)
-            }
-            StatusBarHandler.shared.constructMenu(forUrl: fullUrl)
-        }
+        WebViewPreloader.shared.preloadImages()
+        ScriptDeckStore.shared.setupFolder()
+        ScriptDeckStore.shared.setFSObserver()
+        StatusBarHandler.shared.setupFileSystemListener()
+
         if !UserDefaults.standard.firstTimeLaunch {
             UserDefaults.standard.firstTimeLaunch = true
             Onboarding.shared.show()
@@ -69,45 +56,4 @@ extension NSOpenPanel {
 extension Preferences.PaneIdentifier {
     static let general = Self("general")
     static let about = Self("about")
-}
-
-extension UserDefaults
-{
-    @objc dynamic var language: String
-        {
-        get {
-            return string(forKey: "language") ?? "bash"
-        }
-        set {
-            set(newValue, forKey: "language")
-        }
-    }
-    
-    @objc dynamic var theme: String
-        {
-        get {
-            return string(forKey: "theme") ?? "solarized-dark"
-        }
-        set {
-            set(newValue, forKey: "theme")
-        }
-    }
-    
-    var terminalPath: String {
-        get {
-            return string(forKey: "terminalPath") ?? "Terminal"
-        }
-        set {
-            set(newValue, forKey: "terminalPath")
-        }
-    }
-    
-    var firstTimeLaunch: Bool {
-        get {
-            return bool(forKey: "firstTime")
-        }
-        set {
-            set(newValue, forKey: "firstTime")
-        }
-    }
 }

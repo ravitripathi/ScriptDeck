@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AC92483C1D500E55291 /* AppDelegate.swift */; };
-		414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4ACB2483C1D500E55291 /* ViewController.swift */; };
 		414F4ACE2483C1D800E55291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACD2483C1D800E55291 /* Assets.xcassets */; };
 		414F4AD12483C1D800E55291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414F4ACF2483C1D800E55291 /* Main.storyboard */; };
 		414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F4AD92484067C00E55291 /* ScriptEditorController.swift */; };
@@ -26,6 +25,8 @@
 		41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */; };
 		41F2D00824966B2E008FE9CF /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2D00724966B2E008FE9CF /* OnboardingController.swift */; };
 		41F2D00A2496745F008FE9CF /* WebViewPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F2D0092496745F008FE9CF /* WebViewPreloader.swift */; };
+		41F31DBE249E413400ACD8AE /* UserDefaults+ScriptDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F31DBD249E413400ACD8AE /* UserDefaults+ScriptDeck.swift */; };
+		41F31DC0249E497E00ACD8AE /* ScriptDeckStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F31DBF249E497E00ACD8AE /* ScriptDeckStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,7 +58,6 @@
 		414A0862248D4E92003C5EDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		414F4AC62483C1D500E55291 /* ScriptDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScriptDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		414F4AC92483C1D500E55291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		414F4ACB2483C1D500E55291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		414F4ACD2483C1D800E55291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		414F4AD02483C1D800E55291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScriptDeck.entitlements; sourceTree = "<group>"; };
@@ -73,6 +73,8 @@
 		41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarHandler.swift; sourceTree = "<group>"; };
 		41F2D00724966B2E008FE9CF /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		41F2D0092496745F008FE9CF /* WebViewPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPreloader.swift; sourceTree = "<group>"; };
+		41F31DBD249E413400ACD8AE /* UserDefaults+ScriptDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+ScriptDeck.swift"; sourceTree = "<group>"; };
+		41F31DBF249E497E00ACD8AE /* ScriptDeckStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDeckStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,6 @@
 			children = (
 				414F4AD92484067C00E55291 /* ScriptEditorController.swift */,
 				414F4AC92483C1D500E55291 /* AppDelegate.swift */,
-				414F4ACB2483C1D500E55291 /* ViewController.swift */,
 				414F4ACD2483C1D800E55291 /* Assets.xcassets */,
 				414A0862248D4E92003C5EDB /* Info.plist */,
 				414F4ACF2483C1D800E55291 /* Main.storyboard */,
@@ -125,6 +126,8 @@
 				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
 				41F2D00724966B2E008FE9CF /* OnboardingController.swift */,
 				41F2D0092496745F008FE9CF /* WebViewPreloader.swift */,
+				41F31DBD249E413400ACD8AE /* UserDefaults+ScriptDeck.swift */,
+				41F31DBF249E497E00ACD8AE /* ScriptDeckStore.swift */,
 			);
 			path = ScriptDeck;
 			sourceTree = "<group>";
@@ -221,11 +224,12 @@
 				41EB4F3424842F9D0006EFDB /* StatusBarHandler.swift in Sources */,
 				41A4525F248D620E008F845F /* PreferencesStyle+UserDefaults.swift in Sources */,
 				414F4ADA2484067C00E55291 /* ScriptEditorController.swift in Sources */,
-				414F4ACC2483C1D500E55291 /* ViewController.swift in Sources */,
 				416DC525248D6B40009B01E7 /* GeneralPreferenceViewController.swift in Sources */,
+				41F31DBE249E413400ACD8AE /* UserDefaults+ScriptDeck.swift in Sources */,
 				414F4ACA2483C1D500E55291 /* AppDelegate.swift in Sources */,
 				416DC528248D864D009B01E7 /* AboutViewController.swift in Sources */,
 				41F2D00824966B2E008FE9CF /* OnboardingController.swift in Sources */,
+				41F31DC0249E497E00ACD8AE /* ScriptDeckStore.swift in Sources */,
 				41EB4F32248428700006EFDB /* ShellScriptModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

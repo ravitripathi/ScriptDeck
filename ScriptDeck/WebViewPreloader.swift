@@ -12,7 +12,12 @@ class WebViewPreloader {
     static let shared = WebViewPreloader()
     
     var webviews = [URL: WKWebView]()
-
+    let imagesUrls = [URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/ScriptDeckLogo.png")!,
+    URL(string: "https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step1.png")!,
+    URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step2.png")!,
+    URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step3.png")!,
+    URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step4.gif")!,
+    URL(string:"https://github.com/ravitripathi/ScriptDeck/raw/master/RemoteAssets/step5.png")!]
 
     /// Registers a web view for preloading. If an webview for that URL already
     /// exists, the web view reloads the request
@@ -22,8 +27,8 @@ class WebViewPreloader {
         webview(for: url).load(URLRequest(url: url))
     }
     
-    func preload(urls: [URL]) {
-        for url in urls {
+    func preloadImages() {
+        for url in self.imagesUrls {
             webview(for: url).load(URLRequest(url: url))
         }
     }

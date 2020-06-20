@@ -145,7 +145,6 @@ class ScriptEditorController: NSViewController {
         alert.messageText = "Saved your script at \(url.absoluteString)!"
         alert.addButton(withTitle: "OK")
         alert.runModal()
-        StatusBarHandler.shared.constructMenu(forUrl: directory)
     }
     //    override var representedObject: Any? {
     //        didSet {

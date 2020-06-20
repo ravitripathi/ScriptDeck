@@ -7,14 +7,16 @@
 
 import Cocoa
 import Preferences
+import Combine
 
 class StatusBarHandler: NSObject {
     static let shared = StatusBarHandler()
     
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var runInBackground = false
-    var shellScripts = [ShellScriptModel]()
     var runInBackgroundItem: NSMenuItem?
+    var observer: AnyCancellable?
+    var shellScripts = [ShellScriptModel]()
     
     var preferencesStyle: Preferences.Style {
         get { .preferencesStyleFromUserDefaults() }
@@ -41,24 +43,14 @@ class StatusBarHandler: NSObject {
         }
     }
     
-    private func fetchAllScripts(atUrl fullUrl: URL) {
-        shellScripts = [ShellScriptModel]()
-        let enumerator = FileManager.default.enumerator(atPath: fullUrl.path)
-        let filePaths = enumerator?.allObjects as! [String]
-        //Fetches only sh files
-        //let shellScriptPaths = filePaths.filter{$0.contains(".sh")}
-        for scriptPath in filePaths {
-            if let attributes = try? FileManager.default.attributesOfItem(atPath: fullUrl.path.appending("/\(scriptPath)")) {
-                // Check if the file is executable
-                if (attributes[.posixPermissions] as? NSNumber) == 0o777 {
-                    shellScripts.append(ShellScriptModel(name: scriptPath, filePath: fullUrl.path.appending("/\(scriptPath)")))
-                }
-            }
+    func setupFileSystemListener() {
+        observer = ScriptDeckStore.shared.$liveShellScripts.sink { (scripts) in
+            self.shellScripts = scripts
+            self.constructMenu()
         }
     }
     
-    func constructMenu(forUrl url: URL) {
-        fetchAllScripts(atUrl: url)
+    func constructMenu() {
         let menu = NSMenu()
         for (index, script) in shellScripts.enumerated() {
             let item = NSMenuItem(title: script.name, action: #selector(self.launchShell(_:)), keyEquivalent: "")
@@ -66,25 +58,34 @@ class StatusBarHandler: NSObject {
             item.target = self
             menu.addItem(item)
         }
-        menu.addItem(NSMenuItem.separator())
+        for item in getStaticStatusBarItems() {
+            menu.addItem(item)
+        }
+        statusItem.menu = menu
+    }
+    
+    func getStaticStatusBarItems() -> [NSMenuItem]{
+        var items = [NSMenuItem]()
+        items.append(NSMenuItem.separator())
+        
         runInBackgroundItem = NSMenuItem(title: "Run in background", action: #selector(shouldRunInBackground), keyEquivalent: "B")
         runInBackgroundItem?.state = runInBackground ? .on : .off
         runInBackgroundItem?.target = self
         let addScript = NSMenuItem(title: "Add New Script", action: #selector(self.addNewScript), keyEquivalent: "A")
         addScript.target = self
-        menu.addItem(addScript)
-        menu.addItem(runInBackgroundItem!)
-        menu.addItem(NSMenuItem.separator())
+        
+        items.append(addScript)
+        items.append(runInBackgroundItem!)
+        items.append(NSMenuItem.separator())
         let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
         pref.target = self
-        menu.addItem(pref)
+        items.append(pref)
 
         let onboarding =  NSMenuItem(title: "Show Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
         onboarding.target = self
-        menu.addItem(onboarding)
-        
-        menu.addItem(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
-        statusItem.menu = menu
+        items.append(onboarding)
+        items.append(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
+        return items
     }
     
     @objc func onboard() {
