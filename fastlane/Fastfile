@@ -78,7 +78,7 @@ platform :mac do
         )
 
         # creates a bump version commit
-        # version = get_version_number()
+        version = get_version_number()
 
         # commit_version_bump(
         #     message: "Version bumped to #{version}",
