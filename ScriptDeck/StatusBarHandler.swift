@@ -14,9 +14,7 @@ class StatusBarHandler: NSObject {
     
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var runInBackground = false
-    var needsArguments = false
     var runInBackgroundItem: NSMenuItem?
-    var needsArgumentsItem: NSMenuItem?
     var observer: AnyCancellable?
     var shellScripts = [ShellScriptModel]()
     
@@ -76,13 +74,8 @@ class StatusBarHandler: NSObject {
         let addScript = NSMenuItem(title: "Add New Script", action: #selector(self.addNewScript), keyEquivalent: "A")
         addScript.target = self
         
-        needsArgumentsItem = NSMenuItem(title: "Needs Arguments", action: #selector(self.wouldNeedArguments), keyEquivalent: "")
-        needsArgumentsItem?.state = needsArguments ? .on : .off
-        needsArgumentsItem?.target = self
-        
         items.append(addScript)
         items.append(runInBackgroundItem!)
-        items.append(needsArgumentsItem!)
         items.append(NSMenuItem.separator())
         let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
         pref.target = self
@@ -107,12 +100,7 @@ class StatusBarHandler: NSObject {
         runInBackground = !runInBackground
         runInBackgroundItem?.state = runInBackground ? .on : .off
     }
-    
-    @objc func wouldNeedArguments() {
-        needsArguments = !needsArguments
-        needsArgumentsItem?.state = needsArguments ? .on : .off
-    }
-    
+
     @objc func launchShell(_ sender: NSMenuItem) {
         let shellScript = shellScripts[sender.tag]
         
