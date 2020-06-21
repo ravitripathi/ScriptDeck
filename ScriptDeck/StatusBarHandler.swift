@@ -80,12 +80,24 @@ class StatusBarHandler: NSObject {
         let pref = NSMenuItem(title: "Preferences", action: #selector(self.showPreferences), keyEquivalent: ",")
         pref.target = self
         items.append(pref)
-
+        
+        let showList = NSMenuItem(title: "Manage Scripts", action: #selector(self.showList), keyEquivalent: "S")
+        showList.target = self
+        items.append(showList)
+        
         let onboarding =  NSMenuItem(title: "Show Onboarding", action: #selector(self.onboard), keyEquivalent: "O")
         onboarding.target = self
         items.append(onboarding)
         items.append(NSMenuItem(title: "Quit ScriptDeck", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q"))
         return items
+    }
+    
+    @objc func showList() {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let newWindowController = storyboard.instantiateController(withIdentifier: "ScriptListWindow") as! NSWindowController
+        newWindowController.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
+        newWindowController.window?.center()
     }
     
     @objc func onboard() {
@@ -100,7 +112,7 @@ class StatusBarHandler: NSObject {
         runInBackground = !runInBackground
         runInBackgroundItem?.state = runInBackground ? .on : .off
     }
-
+    
     @objc func launchShell(_ sender: NSMenuItem) {
         let shellScript = shellScripts[sender.tag]
         
@@ -139,7 +151,7 @@ class StatusBarHandler: NSObject {
         notification.title = "Launched \(shellScript.name)"
         notification.soundName = NSUserNotificationDefaultSoundName
         NSUserNotificationCenter.default.deliver(notification)
-    
+        
         try! Process.run(URL(fileURLWithPath: "/bin/bash"), arguments: ["-c", shellScript.filePath]) { (process) in
             notification.title = "Finished \(shellScript.name)"
             notification.soundName = NSUserNotificationDefaultSoundName
