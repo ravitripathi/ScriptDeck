@@ -66,7 +66,7 @@
 		416DC523248D6B40009B01E7 /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
 		416DC526248D864D009B01E7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		416DC527248D864D009B01E7 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		41A45259248D51C1008F845F /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Highlightr.framework.dSYM; path = Carthage/Build/Mac/Highlightr.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		41A45259248D51C1008F845F /* Highlightr.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Highlightr.framework.dSYM; path = "ScriptDeck/Supporting Files/Highlightr.framework.dSYM"; sourceTree = SOURCE_ROOT; };
 		41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesStyle+UserDefaults.swift"; sourceTree = "<group>"; };
 		41E90372248D25FA0060AB93 /* Highlightr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Highlightr.framework; path = Carthage/Build/Mac/Highlightr.framework; sourceTree = "<group>"; };
 		41EB4F31248428700006EFDB /* ShellScriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScriptModel.swift; sourceTree = "<group>"; };
@@ -110,26 +110,50 @@
 		414F4AC82483C1D500E55291 /* ScriptDeck */ = {
 			isa = PBXGroup;
 			children = (
-				414F4AD92484067C00E55291 /* ScriptEditorController.swift */,
-				414F4AC92483C1D500E55291 /* AppDelegate.swift */,
-				414F4ACD2483C1D800E55291 /* Assets.xcassets */,
 				414A0862248D4E92003C5EDB /* Info.plist */,
-				414F4ACF2483C1D800E55291 /* Main.storyboard */,
 				414F4AD32483C1D800E55291 /* ScriptDeck.entitlements */,
+				414F4AC92483C1D500E55291 /* AppDelegate.swift */,
+				414F4AD92484067C00E55291 /* ScriptEditorController.swift */,
 				41EB4F31248428700006EFDB /* ShellScriptModel.swift */,
 				41EB4F3324842F9D0006EFDB /* StatusBarHandler.swift */,
 				416DC523248D6B40009B01E7 /* GeneralPreferenceViewController.swift */,
 				416DC526248D864D009B01E7 /* AboutViewController.swift */,
-				416DC527248D864D009B01E7 /* AboutViewController.xib */,
-				416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */,
-				41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */,
-				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
 				41F2D00724966B2E008FE9CF /* OnboardingController.swift */,
+				41A0BCFA249F584A00872A2D /* Views */,
+				41A0BCF9249F581700872A2D /* Utilites */,
+				41A0BCFB249F58D000872A2D /* Supporting Files */,
+			);
+			path = ScriptDeck;
+			sourceTree = "<group>";
+		};
+		41A0BCF9249F581700872A2D /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
 				41F2D0092496745F008FE9CF /* WebViewPreloader.swift */,
 				41F31DBD249E413400ACD8AE /* UserDefaults+ScriptDeck.swift */,
 				41F31DBF249E497E00ACD8AE /* ScriptDeckStore.swift */,
+				41A4525E248D620E008F845F /* PreferencesStyle+UserDefaults.swift */,
 			);
-			path = ScriptDeck;
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		41A0BCFA249F584A00872A2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				416DC527248D864D009B01E7 /* AboutViewController.xib */,
+				416DC522248D6B40009B01E7 /* GeneralPreferenceViewController.xib */,
+				414F4ACF2483C1D800E55291 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41A0BCFB249F58D000872A2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				414F4ACD2483C1D800E55291 /* Assets.xcassets */,
+				41A45259248D51C1008F845F /* Highlightr.framework.dSYM */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		41E90371248D25FA0060AB93 /* Frameworks */ = {
