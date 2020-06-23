@@ -23,14 +23,14 @@ brew cask install scriptdeck
 
 # Features
 - Add shell scripts (or any other executable script) directly from your status bar
-- Scripts are saved in ~/Documents/ScriptDeckStore with executable permissions.
+- Scripts are saved in `~/Documents/ScriptDeckStore` with executable permissions.
 - Background mode runs the script without launching a terminal instance. macOS notifications are triggered at the start and completion of your script.
 - Ships with a editor with syntax highlighting, powered by [Highlightr](https://github.com/raspu/Highlightr)
 - Scripts are launched with the default Terminal.app. If you prefer iTerm or any other terminal app, select it in the `Preferences` window.
 
 # Existing scripts
 
-For launching your exisiting shell scripts present in other directories, use the standard `source` command.
+For launching your existing shell scripts present in other directories, use the standard `source` command.
 
 `source /path/to/your/script`
 
