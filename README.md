@@ -9,6 +9,7 @@ A macOS status bar app for adding and launching executable scripts
 <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift5-orange.svg"/></a>
 <a href="https://github.com/ravitripathi/ScriptDeck/releases"><img alt="Swift5" src="https://img.shields.io/github/v/tag/ravitripathi/ScriptDeck?label=release"/></a>
 <a href="https://img.shields.io/github/downloads/ravitripathi/ScriptDeck/total?color=green"><img src="https://img.shields.io/github/downloads/ravitripathi/ScriptDeck/total?color=green"/></a>
+<img src="https://img.shields.io/badge/platform-macOS-green"/>
 </p>
 
 Got scripts scattered across your mac? Tired of changing directories and hunting for that one shell script? ScriptDeck simplifies managing scripts by providing a single place to launch them from, and maintaining a single directory for storing them.
